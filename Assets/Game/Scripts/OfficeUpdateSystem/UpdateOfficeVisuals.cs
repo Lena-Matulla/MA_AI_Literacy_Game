@@ -1,5 +1,7 @@
 using UnityEngine;
-
+using UnityEngine.UIElements;
+using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public class OfficeUnlockGroup
@@ -22,6 +24,12 @@ public class UpdateOfficeVisuals : MonoBehaviour
 
     [Header("Unlock groups")]
     public OfficeUnlockGroup[] unlockGroups;
+
+    [Header("ProgressBar")]
+    public UnityEngine.UI.Slider ProgressBar;
+
+    [Header("LevelText")]
+    public TextMeshProUGUI LevelText;
 
 
     private void Start()
@@ -86,6 +94,8 @@ public class UpdateOfficeVisuals : MonoBehaviour
 
             group.targetGroup.SetActive(finalState);
         }
+        LevelText.text = currentLevel.ToString();
+        ProgressBar.value = currentPoints;
     }
 
     private void SetGroupActive(GameObject group, bool activeState)
