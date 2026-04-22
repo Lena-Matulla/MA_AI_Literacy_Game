@@ -18313,9 +18313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88d3bd07d502e34e99566ffb7e09640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpdateOfficeVisuals
-  currentPoints: 0
-  currentLevel: 0
-  levelThresholds: 000000000a000000140000001e0000002800000032000000
   unlockGroups:
   - groupName: R2_Objects_0
     requiredLevel: 0
@@ -41339,6 +41336,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 251732c0690510b4ea857673e41e39f5, type: 3}
+--- !u!1 &1894418960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894418962}
+  - component: {fileID: 1894418961}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1894418961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894418960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5020f847376064942a675b529fe934c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveManager
+--- !u!4 &1894418962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894418960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.49154, y: -6.16024, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1898194583
 GameObject:
   m_ObjectHideFlags: 0
@@ -42772,8 +42813,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2027753842}
+  - component: {fileID: 2027753843}
   m_Layer: 0
-  m_Name: ScoreManager
+  m_Name: ProgressManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42794,6 +42836,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2027753843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027753841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68582afdebdad04429780211ffde054c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressManager
+  currentPoints: 0
+  currentLevel: 0
+  levelThresholds: 000000000a000000190000002d0000004600000064000000
+  officeVisuals: {fileID: 774954490}
 --- !u!1 &2041451010
 GameObject:
   m_ObjectHideFlags: 0
@@ -49138,3 +49196,4 @@ SceneRoots:
   - {fileID: 2058884445}
   - {fileID: 3790447063422364707}
   - {fileID: 2027753842}
+  - {fileID: 1894418962}

@@ -1,0 +1,112 @@
+using UnityEngine;
+
+public class ProgressManager : MonoBehaviour
+{
+
+    public static ProgressManager Instance;
+
+    [Header("Progress")]
+    public int currentPoints = 0;
+    public int currentLevel = 0;
+
+    [Header("Level thresholds")]
+    public int[] levelThresholds = { 0, 10, 25, 45, 70, 100 };
+
+    [Header("Reference")]
+    [SerializeField] private UpdateOfficeVisuals officeVisuals;
+
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        LoadProgress();
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        RefreshVisuals();
+    }
+
+    public void AddPoints(int amount)
+    {
+        currentPoints += amount;
+        UpdateLevel();
+        SaveProgress();
+        RefreshVisuals();
+    }
+
+    public void RemovePoints(int amount)
+    {
+        currentPoints -= amount;
+
+        if (currentPoints < 0)
+            currentPoints = 0;
+
+        UpdateLevel();
+        SaveProgress();
+        RefreshVisuals();
+    }
+
+        
+    private void UpdateLevel()
+    {
+        currentLevel = GetLevelFromPoints(currentPoints);
+    }
+
+    private int GetLevelFromPoints(int points)
+    {
+        int level = 0;
+
+        for (int i = 0; i < levelThresholds.Length; i++)
+        {
+            if (points >= levelThresholds[i])
+                level = i;
+        }
+
+        return level;
+    }
+
+    
+    public void SaveProgress()
+    {
+        GameProgressData data = new GameProgressData
+        {
+            currentPoints = currentPoints,
+            currentLevel = currentLevel
+        };
+
+        SaveManager.Save(data);
+    }
+    
+
+    public void LoadProgress()
+    {
+        GameProgressData data = SaveManager.Load();
+        currentPoints = data.currentPoints;
+        currentLevel = data.currentLevel;
+    }
+    
+
+    public void RefreshVisuals()
+    {
+        if (officeVisuals != null)
+        {
+            officeVisuals.Display(currentPoints, currentLevel);
+        }
+    }
+
+    [ContextMenu("Add 10 Points")]
+    private void DebugAdd10Points()
+    {
+        AddPoints(10);
+    }
+
+}

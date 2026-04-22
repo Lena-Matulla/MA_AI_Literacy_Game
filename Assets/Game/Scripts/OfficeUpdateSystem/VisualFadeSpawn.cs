@@ -1,4 +1,3 @@
-using System.Threading;
 using UnityEngine;
 
 
@@ -9,20 +8,23 @@ public class VisualFadeSpawn : MonoBehaviour
     [SerializeField]
     public float fadeTime = 1;
 
-    private float elapsedTime = 0;
+    private float elapsedTime = 0f;
     private float currentalpha = 0;
-    private SpriteRenderer sr;
     SpriteRenderer[] children;
 
 
 
     private void OnEnable()
     {
-        sr = GetComponent<SpriteRenderer>();
-        children = GetComponentsInChildren<SpriteRenderer>();
+        children = GetComponentsInChildren<SpriteRenderer>(true);
         elapsedTime = 0;
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
-        
+
+        foreach (SpriteRenderer sr in children)
+        {
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
+        }
+
+
     }
 
     private void OnDisable()
@@ -34,6 +36,7 @@ public class VisualFadeSpawn : MonoBehaviour
     private void Update()
     {
         elapsedTime += Time.deltaTime;
+
         if (elapsedTime <= fadeTime) 
         {
             foreach (SpriteRenderer sr in children)
