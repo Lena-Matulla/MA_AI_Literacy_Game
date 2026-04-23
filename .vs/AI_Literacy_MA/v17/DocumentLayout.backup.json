@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|c:\\users\\matul\\documents\\unity\\projekte\\ai_literacy_ma\\assets\\game\\scripts\\gameprogressdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\gameprogressdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\officeupdatesystem\\visualfadespawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\officeupdatesystem\\visualfadespawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|c:\\users\\matul\\documents\\unity\\projekte\\ai_literacy_ma\\assets\\game\\scripts\\progressmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\progressmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\progressmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|c:\\users\\matul\\documents\\unity\\projekte\\ai_literacy_ma\\assets\\game\\scripts\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|c:\\users\\matul\\documents\\unity\\projekte\\ai_literacy_ma\\assets\\game\\scripts\\gameprogressdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\gameprogressdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\officeupdatesystem\\updateofficevisuals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\valueshower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\valueshower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\officeupdatesystem\\visualfadespawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\officeupdatesystem\\visualfadespawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\trialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +46,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "SaveManager.cs",
+              "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\SaveManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\SaveManager.cs",
+              "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\SaveManager.cs",
+              "RelativeToolTip": "Assets\\Game\\Scripts\\SaveManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-22T10:52:59.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "GameProgressData.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\GameProgressData.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\GameProgressData.cs",
@@ -65,14 +82,14 @@
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\ProgressManager.cs",
               "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ProgressManager.cs",
               "RelativeToolTip": "Assets\\Game\\Scripts\\ProgressManager.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAcwG0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAIwEQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-22T10:27:45.622Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "UpdateOfficeVisuals.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\OfficeUpdateSystem\\UpdateOfficeVisuals.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\OfficeUpdateSystem\\UpdateOfficeVisuals.cs",
@@ -84,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ValueShower.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ValueShower.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\ValueShower.cs",
@@ -96,19 +113,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "VisualFadeSpawn.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\OfficeUpdateSystem\\VisualFadeSpawn.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\OfficeUpdateSystem\\VisualFadeSpawn.cs",
               "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\OfficeUpdateSystem\\VisualFadeSpawn.cs",
               "RelativeToolTip": "Assets\\Game\\Scripts\\OfficeUpdateSystem\\VisualFadeSpawn.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T13:14:44.748Z"
+              "WhenOpened": "2026-04-16T13:14:44.748Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "TrialManager.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\TrialManager.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\TrialManager.cs",
@@ -120,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ExportManager.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ExportManager.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\ExportManager.cs",
@@ -132,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ClickHandler.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\Desk\\ClickHandler.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\Desk\\ClickHandler.cs",

@@ -15,7 +15,6 @@ public class ProgressManager : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private UpdateOfficeVisuals officeVisuals;
 
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -58,23 +57,42 @@ public class ProgressManager : MonoBehaviour
         
     private void UpdateLevel()
     {
-        currentLevel = GetLevelFromPoints(currentPoints);
+        GetLevelFromPoints(currentPoints);
     }
 
-    private int GetLevelFromPoints(int points)
+    private void GetLevelFromPoints(int points)
     {
-        int level = 0;
+
+        while (currentLevel < levelThresholds.Length - 1)
+        {
+            int neededPoints = levelThresholds[currentLevel + 1];
+
+            if (currentPoints >= neededPoints)
+            {
+                currentPoints -= neededPoints;
+                currentLevel++;
+            }
+            else
+            {
+                //stop if not enough points anymore
+                break;
+            }
+        }
+
+
+        /*
 
         for (int i = 0; i < levelThresholds.Length; i++)
         {
             if (points >= levelThresholds[i])
                 level = i;
         }
-
+        
         return level;
+        */
     }
 
-    
+
     public void SaveProgress()
     {
         GameProgressData data = new GameProgressData
@@ -107,6 +125,22 @@ public class ProgressManager : MonoBehaviour
     private void DebugAdd10Points()
     {
         AddPoints(10);
+    }
+
+    [ContextMenu("Reset Progress")]
+    public void ResetProgress()
+    {
+        currentPoints = 0;
+        currentLevel = 0;
+
+        //remove file
+        SaveManager.DeleteSave();
+        //write freh data
+        SaveProgress();
+        //update UI
+        RefreshVisuals();
+
+        Debug.Log("Progress reset");
     }
 
 }

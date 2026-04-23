@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,6 +55,13 @@ public class TrialManager : MonoBehaviour
     //What state of answering it is currently
     private enum TrialState { Answering, Confidence}
     private TrialState _state = TrialState.Answering;
+
+    //saving trustvalue points per round (computer screen opened, after closing send to overall points and start new)
+    [Header("Points when correct")]
+    private int ScoreThisRound = 0;
+    [SerializeField]
+    private int pointUpdate = 10;
+    [SerializeField] private TextMeshProUGUI ScoreThisRoundTextField;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -189,6 +197,14 @@ public class TrialManager : MonoBehaviour
 
         exportManager.RegisterUsedImage(imageProvider.CurrentImageEntry);
 
+        //update the score on the computerscreen
+        if(accuracy == 1)
+        {
+            ScoreThisRound += pointUpdate;
+            ScoreThisRoundTextField.text = ScoreThisRound.ToString();
+        }
+
+
         ExitConfidenceState();
     }
 
@@ -237,6 +253,14 @@ public class TrialManager : MonoBehaviour
         UpdateSelectionUI();
     }
 
+
+    //when home button is clicked, the roundscore is updated on the overall score and reset
+    public void exportPointsOnClosed()
+    {
+        ProgressManager.Instance.AddPoints(ScoreThisRound);
+        ScoreThisRound = 0;
+        ScoreThisRoundTextField.text = ScoreThisRound.ToString();
+    }
 
 
 

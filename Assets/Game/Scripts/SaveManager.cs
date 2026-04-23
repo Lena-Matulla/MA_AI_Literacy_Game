@@ -28,12 +28,13 @@ public class SaveManager : MonoBehaviour
 
     public static void DeleteSave()
     {
-        if (!File.Exists(SavePath))
+        if (File.Exists(SavePath))
         {
             File.Delete(SavePath);
             Debug.Log("Save deleted");
         }
     }
+
 
 
 }
