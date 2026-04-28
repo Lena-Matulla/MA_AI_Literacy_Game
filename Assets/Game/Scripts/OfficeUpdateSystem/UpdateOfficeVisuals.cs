@@ -24,7 +24,7 @@ public class UpdateOfficeVisuals : MonoBehaviour
     [Header("LevelText")]
     public TextMeshProUGUI LevelText;
 
-    public void Display(int currentPoints, int currentLevel)
+    public void Display(int currentPoints, int currentLevel, int maxpoints)
     {
         foreach (OfficeUnlockGroup group in unlockGroups)
         {
@@ -41,6 +41,7 @@ public class UpdateOfficeVisuals : MonoBehaviour
             LevelText.text = currentLevel.ToString();
 
         if (ProgressBar != null)
+            ProgressBar.maxValue = maxpoints;
             ProgressBar.value = currentPoints;
     }
 }

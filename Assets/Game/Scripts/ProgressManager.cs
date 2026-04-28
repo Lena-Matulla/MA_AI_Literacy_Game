@@ -9,11 +9,13 @@ public class ProgressManager : MonoBehaviour
     public int currentPoints = 0;
     public int currentLevel = 0;
 
-    [Header("Level thresholds")]
+    [Header("Level thresholds (and amount of levels based on length)")]
     public int[] levelThresholds = { 0, 10, 25, 45, 70, 100 };
+
 
     [Header("Reference")]
     [SerializeField] private UpdateOfficeVisuals officeVisuals;
+    
 
     private void Awake()
     {
@@ -32,6 +34,7 @@ public class ProgressManager : MonoBehaviour
     void Start()
     {
         RefreshVisuals();
+
     }
 
     public void AddPoints(int amount)
@@ -63,20 +66,41 @@ public class ProgressManager : MonoBehaviour
     private void GetLevelFromPoints(int points)
     {
 
-        while (currentLevel < levelThresholds.Length - 1)
+        while (currentLevel <= levelThresholds.Length - 1)
         {
-            int neededPoints = levelThresholds[currentLevel + 1];
-
-            if (currentPoints >= neededPoints)
+            if(currentLevel == levelThresholds.Length - 1)
             {
-                currentPoints -= neededPoints;
-                currentLevel++;
+                int LastLevelNeededPoints = levelThresholds[currentLevel];
+                if (currentPoints >= LastLevelNeededPoints)
+                {
+                    currentPoints = LastLevelNeededPoints;
+                    currentLevel = levelThresholds.Length-1;
+                    break;
+                }
+                else
+                {
+                    //stop if not enough points anymore
+                    break;
+                }
+
             }
             else
             {
-                //stop if not enough points anymore
-                break;
+                int neededPoints = levelThresholds[currentLevel + 1];
+
+                if (currentPoints >= neededPoints)
+                {
+                    currentPoints -= neededPoints;
+                    currentLevel++;
+                }
+                else
+                {
+                    //stop if not enough points anymore
+                    break;
+                }
             }
+
+            
         }
 
 
@@ -117,7 +141,15 @@ public class ProgressManager : MonoBehaviour
     {
         if (officeVisuals != null)
         {
-            officeVisuals.Display(currentPoints, currentLevel);
+            if (currentLevel != levelThresholds.Length - 1)
+            {
+                //last one is the needed points in the level, so the progressbar max gets updated accordingly
+                officeVisuals.Display(currentPoints, currentLevel, levelThresholds[currentLevel + 1]);
+            }
+            else
+            {
+                officeVisuals.Display(currentPoints, currentLevel, levelThresholds[currentLevel]);
+            }
         }
     }
 
