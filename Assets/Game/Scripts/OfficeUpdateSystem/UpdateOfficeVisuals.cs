@@ -3,6 +3,8 @@ using UnityEngine.UIElements;
 using UnityEngine.UI;
 using TMPro;
 
+
+// Here the objects which get revealed/enabled per level are linked in the inspector
 [System.Serializable]
 public class OfficeUnlockGroup
 {
@@ -12,6 +14,8 @@ public class OfficeUnlockGroup
     public bool activeWhenUnlocked = true;
 }
 
+
+// The script which makes it visible
 public class UpdateOfficeVisuals : MonoBehaviour
 {
 
