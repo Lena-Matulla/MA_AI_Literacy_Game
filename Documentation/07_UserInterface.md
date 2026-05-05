@@ -1,7 +1,7 @@
 ## Interface
 
 The Game is devided into a top and bottom part.
-The top half shows a topdown view of an 2D office. This part crows over time dependent on the correct answers of the player. The higher the "TrusScore" the bigger the office expands and the more objects and npcs are there.
+The top half shows a topdown view of an 2D office. This part crows over time dependent on the correct answers of the player. The higher the "TrustValue" the bigger the office expands and the more objects and npcs are there.
 
 The bottom half of the screen displays an desk with objects on it.
 The objects are:

@@ -16,7 +16,7 @@ ClickHandler
 ## Important Methods
 
 ### Update()
-Each frame it checks if the mouse clicked. if yes, it takes the current camera based on the screen position and checks if a collider with the tag "Laptop" was hit. If yes, it enables it.
+Each frame it checks if the mouse clicked. if yes, it selects either deskCam or officeCam depending on whether the mouse is in the lower or upper half of the screen. It then checks if a collider with the tag "Laptop" was hit. If yes, it enables it.
 
 Later on other objects (Tablet and Notebook) will be added
 

@@ -1,7 +1,7 @@
 # TrialManager.cs
 
 ## Purpose
-Complete logic behind the Imagegame
+this script manages the trial flow/gameplay logic of the ImageGame.
 
 ## Used By
 ImageGameManager
@@ -44,7 +44,7 @@ Object and function it links to once changed/clicked:
 
 Also calls ResetSelectionUI() and StartNewTrial()
 
-### Selection(Selection selection)
+### Select(Selection selection)
 Calls UpdateSelectionUI()
 Counts how often fake/real button is clicked
 
@@ -61,8 +61,8 @@ changes color and scale depending on what is selected
 
 ### OnConfirmClicked()
 makes the buttons not interactable anymore.
-- If real is selected, it sets the local and normal value to the dummy values and calls EnterConfidenceState()
-- If fake is selected, it starts the state = Marking and activates the interactionLayer as well as the Makerpart.
+- If real is selected, it sets the local and normal value to the dummy values, sets _ChoseFake to false and calls EnterConfidenceState()
+- If fake is selected, it starts the state = Marking, sets _ChoseFake to true and activates the interactionLayer as well as the Makerpart.
 
 ### OnToggleChanged(Toggle toggle)
 Activated if the toggle is interacted with.
@@ -71,7 +71,7 @@ Activated if the toggle is interacted with.
 
 ### OnConfirmMarkedClicked()
 Called when Confirm Marked button is clicked.
-If the interactionlayer is interacted with or the toggle is activated, then the EnterConfidenceState() is called
+If the interactionlayer is interacted with or the toggle is activated, then the EnterConfidenceState() is called. If the toggle is not on, it copies latestlocal/latestnormal into _Local/_Norm
 
 ### EnterConfidenceState()
 state is set to Confidence.
@@ -90,7 +90,7 @@ logs all the important values by calling the DataLogger LogTrial function.
 Calls exportManager.RegisterUsedImage(imageProvider.CurrentImageEntry) to safe the images 
 (maybe not needed in future)
 
-if correct answer, ScoreThisRound and its Textfield
+if correct answer, it increases ScoreThisRound by pointUpdate and updates ScoreThisRoundTextField
 
 Then calls ExitConfidenceState()
 
@@ -103,7 +103,7 @@ Calls StartNewTrial() as well as ResetSelectionUI()
 Resets all important parts back to default to start again with a new image. (ScoreThisRound is not reset, because that is kept till the home button was activated and exportPointsOnClosed() gets called)
 
 ### updatemarked(Vector2 ll, Vector2 ln)
-gets called from the interactionLayer when it is clicked. The local and normal values are then updated here 
+gets called from the interactionLayer when it is clicked. It updates latestlocal/latestnormal 
 
 ### exportPointsOnClosed()
 Called once the Home button is clicked. Calls the ProgressManager AddPoints function with ScoreThisRound as variable. With that the score is added to the overall TrustValue score. 
@@ -115,7 +115,7 @@ see above
 ## Notes
 Two state types:
 - Selection state 
-  - refers to if fake or true is clicked 
+  - refers to if fake or real is clicked 
   - { None, Real, Fake}
 - Trial state
   - refers to the overall state the user is in ()

@@ -45,7 +45,9 @@ public class UpdateOfficeVisuals : MonoBehaviour
             LevelText.text = currentLevel.ToString();
 
         if (ProgressBar != null)
+        {
             ProgressBar.maxValue = maxpoints;
             ProgressBar.value = currentPoints;
+        }
     }
 }

@@ -18,7 +18,7 @@ More in Chapter 5.
 # SaveManager
 
 ## Purpose
-Saves the current Progress in the consistend data path. Therefore the current progress is still there even if the game was closed.
+Saves the current Progress in the persistent data path. Therefore the current progress is still there even if the game was closed.
 
 ## Components
 Script: SaveManager

@@ -14,7 +14,7 @@ ImageProvider (updates Raw Image of the UI ImagePanel)
 
 ## Classes
 - ImageEntry
-  - construct for the images to store all relevant data
+  - container class for the images to store all relevant data
   - contains: texture, filePath, fileName,isFake (bool)
 - ImageProvider
 
@@ -24,7 +24,7 @@ stores the needed paths to the folders where the images lie (Folders are beside 
 
 Calls EnsureFolderExists() and LoadImagesFromDisk()
 
-If folders are empty, take the fallback images. 
+If folders are empty, take the fallback images. They are loaded separately per category (real / fake). 
 The folders are besides the exe and can therefore be accessed.
 -->> maybe changes later!!
 
@@ -48,12 +48,12 @@ texture, filePath, fileName, isFake (bool)
 In case that the folders are empty, this function gets called. It loads the fallback images from the Resources folder.
 
 ### LoadRandomImage()
-chooses random if a picture from the true or false list is chosen. and then chooses the picture random as well. (also covers fallback options in case that the false and true lists are different lengths and maybe empty)
+chooses random between realImages and fakeImages and then chooses the picture random as well. (also covers fallback options in case that the realImages or fakeImages are empty)
 
 ### ReloadImages()
-Reload the images.
+Reload the images from disk and fallback resouce. Does not automatically display new image.
 
 ## Data
-Gets the images and stores them in structs to be used. Chooses images from those to update the RawImage
+Gets the images and stores them in the container class to be used. Chooses images from those to update the RawImage
 
 ## Notes
