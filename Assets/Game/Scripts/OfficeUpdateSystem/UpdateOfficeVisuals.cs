@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+
 using UnityEngine.UI;
 using TMPro;
 
@@ -23,10 +23,11 @@ public class UpdateOfficeVisuals : MonoBehaviour
     public OfficeUnlockGroup[] unlockGroups;
 
     [Header("ProgressBar")]
-    public UnityEngine.UI.Slider ProgressBar;
+    public PointSliderVisualUpdater ProgressBar;
 
     [Header("LevelText")]
     public TextMeshProUGUI LevelText;
+
 
     public void Display(int currentPoints, int currentLevel, int maxpoints)
     {
@@ -46,8 +47,13 @@ public class UpdateOfficeVisuals : MonoBehaviour
 
         if (ProgressBar != null)
         {
-            ProgressBar.maxValue = maxpoints;
-            ProgressBar.value = currentPoints;
+           ProgressBar.AdjustPoints(currentPoints, maxpoints);
+            //ProgressBar.maxValue = maxpoints;
+            //ProgressBar.value = currentPoints;
         }
     }
+
+
 }
+
+

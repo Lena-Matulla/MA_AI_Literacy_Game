@@ -13082,6 +13082,7 @@ GameObject:
   - component: {fileID: 413804914}
   - component: {fileID: 413804915}
   - component: {fileID: 413804916}
+  - component: {fileID: 413804917}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -13159,7 +13160,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: 2
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -13189,6 +13190,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ValueShower
   slider: {fileID: 413804915}
   textfield: {fileID: 1745993228}
+--- !u!114 &413804917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413804913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6daf397ac30703541811441654e5fd2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointSliderVisualUpdater
 --- !u!4 &415316506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1347379873622631787, guid: 31bb96d5cdbe21c48a1fce930966f80f, type: 3}
@@ -18949,7 +18962,7 @@ MonoBehaviour:
     requiredLevel: 5
     targetGroup: {fileID: 1720680357}
     activeWhenUnlocked: 1
-  ProgressBar: {fileID: 413804915}
+  ProgressBar: {fileID: 413804917}
   LevelText: {fileID: 1462567174}
 --- !u!1 &802084391
 GameObject:
@@ -41049,7 +41062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Volume
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
