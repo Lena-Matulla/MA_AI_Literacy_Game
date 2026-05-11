@@ -26,7 +26,9 @@ public class TrialManager : MonoBehaviour
 
     [Header("MarkedFields")]
     public GameObject Markerpart;
+    public TMP_InputField whyInputField;
 
+    private string whytext;
     
     private int _trialIndex = 0;
     private float _trialStartTime = 0f;
@@ -170,6 +172,7 @@ public class TrialManager : MonoBehaviour
             _state = TrialState.Marking;
             interactionLayer.gameObject.SetActive(true);
             Markerpart.gameObject.SetActive(true);
+            whyInputField.interactable = true;
             
         }
         else return;
@@ -205,6 +208,9 @@ public class TrialManager : MonoBehaviour
                 _Local = latestlocal;
                 _Norm = latestnormal;
             }
+
+            whytext = whyInputField.text;
+            whyInputField.text = "";
             EnterConfienceState();
         }
         
@@ -221,6 +227,7 @@ public class TrialManager : MonoBehaviour
         interactionLayer.gameObject.SetActive(false);
         toggle.interactable = false;
         confirmeMarked.interactable = false;
+        whyInputField.interactable=false;
 
         //show confidence panel
         confidencePanel.SetActive(true);
@@ -258,7 +265,8 @@ public class TrialManager : MonoBehaviour
             toggleChecked: _toggleChecked,
             confidence: _confidence,
             realclicked: _realClickedInTrial,
-            fakeclicked: _fakeClickedInTrial
+            fakeclicked: _fakeClickedInTrial,
+            whyText: whytext
         );
 
         exportManager.RegisterUsedImage(imageProvider.CurrentImageEntry);
@@ -372,7 +380,8 @@ public class TrialManager : MonoBehaviour
             toggleChecked: _toggleChecked,
             confidence: _confidence,
             realclicked: _realClickedInTrial,
-            fakeclicked: _fakeClickedInTrial
+            fakeclicked: _fakeClickedInTrial,
+            whyText: whytext
         );
 
         StartNewTrial();

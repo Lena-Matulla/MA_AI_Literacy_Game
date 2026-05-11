@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\pointslidervisualupdater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\progressmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\progressmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\officeupdatesystem\\updateofficevisuals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\officeupdatesystem\\updateofficevisuals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\mouseclickposition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\mouseclickposition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\progressmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\progressmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\officeupdatesystem\\visualfadespawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -72,14 +72,14 @@
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\PointSliderVisualUpdater.cs",
               "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\PointSliderVisualUpdater.cs",
               "RelativeToolTip": "Assets\\Game\\Scripts\\PointSliderVisualUpdater.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowCgAAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-07T11:12:50.801Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MouseClickPosition.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\MouseClickPosition.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\MouseClickPosition.cs",
@@ -91,15 +91,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ProgressManager.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ProgressManager.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\ProgressManager.cs",
               "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ProgressManager.cs",
               "RelativeToolTip": "Assets\\Game\\Scripts\\ProgressManager.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAUwEEAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAIwEEAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T10:27:45.622Z"
+              "WhenOpened": "2026-04-22T10:27:45.622Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -127,15 +128,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UpdateOfficeVisuals.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\OfficeUpdateSystem\\UpdateOfficeVisuals.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\OfficeUpdateSystem\\UpdateOfficeVisuals.cs",
               "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\OfficeUpdateSystem\\UpdateOfficeVisuals.cs",
               "RelativeToolTip": "Assets\\Game\\Scripts\\OfficeUpdateSystem\\UpdateOfficeVisuals.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwDMAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADMAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T13:43:44.917Z"
+              "WhenOpened": "2026-04-20T13:43:44.917Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
