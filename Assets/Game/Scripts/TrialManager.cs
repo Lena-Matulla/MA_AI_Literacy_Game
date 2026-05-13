@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TrialManager : MonoBehaviour
 {
     [Header("Refs")]
-    public ImageProvider imageProvider;
+    public ImgProvider imageProvider;
     public DataLogger dataLogger;
     public MouseClickPosition interactionLayer;
 
@@ -247,7 +247,7 @@ public class TrialManager : MonoBehaviour
     private void FinalizeAndLog()
     {
         bool groundTruthIsFake = imageProvider.currentIsFake;
-        string imageName = imageProvider.currentImageName;
+        string imageName = imageProvider.currentImgName;
 
         int accuracy = (_ChoseFake == groundTruthIsFake) ? 1 : 0;
         int reactionTimeMs = Mathf.RoundToInt((Time.time - _trialStartTime) * 1000f);
@@ -269,7 +269,7 @@ public class TrialManager : MonoBehaviour
             whyText: whytext
         );
 
-        exportManager.RegisterUsedImage(imageProvider.CurrentImageEntry);
+        exportManager.RegisterUsedImage(imageProvider.CurrentImgEntry);
 
         //update the score on the computerscreen
         if(accuracy == 1)
@@ -354,7 +354,7 @@ public class TrialManager : MonoBehaviour
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /*
     private void OnAnswer(bool userChoseFake, Vector2 lastLocal, Vector2 lastNorm)
     {
         if (_hasAnsweredThisTrial) return;
@@ -403,6 +403,6 @@ public class TrialManager : MonoBehaviour
             OnAnswer(userChoseFake: true, interactionLayer.lastLocal, interactionLayer.lastNormal);
             //interactionLayer.gameObject.SetActive(false);
         }*/
-    }
+    //}
 
 }

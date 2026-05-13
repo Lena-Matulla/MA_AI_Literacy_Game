@@ -10,11 +10,11 @@ public class ExportManager : MonoBehaviour
 
     public DataLogger dataLogger;
 
-    private List<ImageEntry> usedImages = new List<ImageEntry>();
+    private List<ImgEntry> usedImages = new List<ImgEntry>();
 
     //register new imageentry, but check if it is already in the list. every image is only stored once
     //regardless of how often it was used
-    public void RegisterUsedImage(ImageEntry imageEntry)
+    public void RegisterUsedImage(ImgEntry imageEntry)
     {
         if(imageEntry == null)
         {

@@ -47776,6 +47776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5751508699128834863}
   - component: {fileID: 4616794526720415897}
+  - component: {fileID: 5751508699128834864}
   m_Layer: 5
   m_Name: ImageSystem
   m_TagString: Untagged
@@ -48893,7 +48894,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574529505805678439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b7ae3910c1836049ba4926526fa317a, type: 3}
   m_Name: 
@@ -49549,6 +49550,19 @@ RectTransform:
   m_AnchoredPosition: {x: -170, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5751508699128834864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574529505805678439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: badd7423f36ccde49bb00c38bfc9be97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ImgProvider
+  targetImage: {fileID: 5131626253609171755}
 --- !u!114 &5778086735532463464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50716,7 +50730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479d9150c3fa13d43926245cf536d6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrialManager
-  imageProvider: {fileID: 4616794526720415897}
+  imageProvider: {fileID: 5751508699128834864}
   dataLogger: {fileID: 5778086735532463464}
   interactionLayer: {fileID: 369250587613109865}
   realButton: {fileID: 8660356954479735579}

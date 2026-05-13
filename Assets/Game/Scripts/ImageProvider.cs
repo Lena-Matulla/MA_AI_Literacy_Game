@@ -3,18 +3,32 @@ using UnityEngine.UI;
 using System.IO;
 using System.Collections.Generic;
 
+//OLD FILE NOT USED ANYMORE
+//NEW FILE ImgProvider !!!!!!
+//only here for debug reasons!!!
+//IGNORE THIS FILE
+public enum ImageCategory
+{
+    Human,
+    Animals,
+    Architecture,
+    Text
+}
 public class ImageEntry
 {
     public Texture2D texture;
     public string filePath;
     public string fileName;
     public bool isFake;
+    public ImageCategory category;
 }
 
 public class ImageProvider : MonoBehaviour
 {
     [Header("Reference to UI")]
     public RawImage targetImage;
+
+    private List<ImageEntry> allImages;
 
     private List<ImageEntry> realImages = new List<ImageEntry>();
     private List<ImageEntry> fakeImages = new List<ImageEntry>();
@@ -75,6 +89,7 @@ public class ImageProvider : MonoBehaviour
 
         Debug.Log($"Loaded {realImages.Count} real images and {fakeImages.Count} fake images.");
     }
+
 
     void LoadFolderIntoList(string folderPath, List<ImageEntry> targetList, bool isFake)
     {
