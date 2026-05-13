@@ -248,6 +248,7 @@ public class TrialManager : MonoBehaviour
     {
         bool groundTruthIsFake = imageProvider.currentIsFake;
         string imageName = imageProvider.currentImgName;
+        string category = imageProvider.currentCategory;
 
         int accuracy = (_ChoseFake == groundTruthIsFake) ? 1 : 0;
         int reactionTimeMs = Mathf.RoundToInt((Time.time - _trialStartTime) * 1000f);
@@ -266,10 +267,11 @@ public class TrialManager : MonoBehaviour
             confidence: _confidence,
             realclicked: _realClickedInTrial,
             fakeclicked: _fakeClickedInTrial,
-            whyText: whytext
+            whyText: whytext,
+            currentCategory: category
         );
 
-        exportManager.RegisterUsedImage(imageProvider.CurrentImgEntry);
+        //exportManager.RegisterUsedImage(imageProvider.CurrentImgEntry);
 
         //update the score on the computerscreen
         if(accuracy == 1)

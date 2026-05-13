@@ -32,7 +32,7 @@ public class DataLogger : MonoBehaviour
         if (_headerWritten) return;
         if(!File.Exists(FilePath) || new FileInfo(FilePath).Length == 0 )
         {
-            string header = "session_id,session_start_date,session_duration_ms,trial_index,image_name,ground_truth,user_choice,accuracy,reaction_time_ms, lastlocal, lastnormal,OverallToggleChecked, confidence, RealclickedInTrial, FakeClickedInTrial, whyText\n";
+            string header = "session_id,session_start_date,session_duration_ms,trial_index,image_name,ground_truth,user_choice,accuracy,reaction_time_ms, lastlocal, lastnormal,OverallToggleChecked, confidence, RealclickedInTrial, FakeClickedInTrial, whyText, currentCategory\n";
             File.AppendAllText(FilePath, header);
         }
         _headerWritten = true;
@@ -51,7 +51,8 @@ public class DataLogger : MonoBehaviour
         float confidence,
         int realclicked,
         int fakeclicked,
-        string whyText) 
+        string whyText,
+        string currentCategory) 
     {
         WriteHeaderIfNeeded();
 
@@ -60,7 +61,7 @@ public class DataLogger : MonoBehaviour
 
         int sessionDurationMs = (int)(DateTime.Now - _sessionStartTime).TotalMilliseconds;
 
-        string line = $"{ SessionId }, {EscapeCsv(_sessionStartTimeString)},{sessionDurationMs},{ trialIndex},{ EscapeCsv(imageName)},{ groundTruth},{ userChoice},{ accuracy},{ reactionTimeMs},{lastLocal},{lastNormal},{toggleChecked},{confidence},{realclicked},{fakeclicked}, {whyText}\n";
+        string line = $"{ SessionId }, {EscapeCsv(_sessionStartTimeString)},{sessionDurationMs},{ trialIndex},{ EscapeCsv(imageName)},{ groundTruth},{ userChoice},{ accuracy},{ reactionTimeMs},{lastLocal},{lastNormal},{toggleChecked},{confidence},{realclicked},{fakeclicked}, {whyText}, {currentCategory}\n";
         File.AppendAllText(FilePath, line );
     }
 

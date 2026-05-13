@@ -36,6 +36,8 @@ public class ImgProvider : MonoBehaviour
     public bool currentIsFake { get; private set; }
     public string currentImgName { get; private set; }
 
+    public string currentCategory {  get; private set; }
+
     private string basePath;
 
     private bool isInitialized = false;
@@ -224,6 +226,7 @@ public class ImgProvider : MonoBehaviour
         currentIsFake = chooseFake;
         targetImage.texture = chosenEntry != null ? chosenEntry.texture : null;
         currentImgName = chosenEntry != null ? chosenEntry.fileName : "";
+        currentCategory = randomCategory.ToString();
 
     }
 }
