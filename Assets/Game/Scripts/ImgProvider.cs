@@ -54,7 +54,7 @@ public class ImgProvider : MonoBehaviour
 
         allImages = new List<ImgEntry>();
 
-        EnsureFolderExist();
+        LoadFolders();
 
         if (allImages.Count == 0)
         {
@@ -88,7 +88,7 @@ public class ImgProvider : MonoBehaviour
 
 
 
-    private void EnsureFolderExist()
+    private void LoadFolders()
     {
         foreach (ImgCategory category in Enum.GetValues(typeof(ImgCategory)))
         {

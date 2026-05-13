@@ -21,3 +21,5 @@ The game saves one row per trial in a csv.
 - confidence | confidence | specified confidence value from 1-10
 - RealclickedInTrial | realclicked | How often was the "Real" button clicked in this Trial
 - FakeClickedInTrial | fakeclicked | How often was the "Fake" button clicked in this Trial
+- whyText | whyText | The input from the inputField, where the user can explain why them thinks it is fake
+- currentCategory | currentCategory | the category of the image
