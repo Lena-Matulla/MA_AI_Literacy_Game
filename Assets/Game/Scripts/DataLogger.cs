@@ -38,7 +38,7 @@ public class DataLogger : MonoBehaviour
         if (_headerWritten) return;
         if(!File.Exists(FilePath) || new FileInfo(FilePath).Length == 0 )
         {
-            string header = "player_id,session_id,session_start_date,session_duration_ms,trial_index,image_name,ground_truth,user_choice,accuracy,reaction_time_ms, lastlocal, lastnormal,OverallToggleChecked, confidence, RealclickedInTrial, FakeClickedInTrial, whyText, currentCategory\n";
+            string header = "player_id,session_id,session_start_date,session_duration_ms,trial_index,image_name,ground_truth,user_choice,accuracy,reaction_time_ms, lastlocalx, lastlocaly, lastnormalx, lastnormaly,OverallToggleChecked, confidence, RealclickedInTrial, FakeClickedInTrial, whyText, currentCategory\n";
             File.AppendAllText(FilePath, header);
         }
         _headerWritten = true;
@@ -77,8 +77,10 @@ public class DataLogger : MonoBehaviour
                     $"{userChoice}," +
                     $"{accuracy}," +
                     $"{reactionTimeMs}," +
-                    $"{EscapeCsv(lastLocal.ToString())}," +
-                    $"{EscapeCsv(lastNormal.ToString())}," +
+                    $"{lastLocal.x.ToString(CultureInfo.InvariantCulture)}," +
+                    $"{lastLocal.y.ToString(CultureInfo.InvariantCulture)}," +
+                    $"{lastNormal.x.ToString(CultureInfo.InvariantCulture)}," +
+                    $"{lastNormal.y.ToString(CultureInfo.InvariantCulture)}," +
                     $"{toggleChecked}," +
                     $"{confidence.ToString(CultureInfo.InvariantCulture)}," +
                     $"{realclicked}," +

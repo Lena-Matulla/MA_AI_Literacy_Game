@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -12,7 +11,7 @@ public class CSVDataForStatistics
     public int sessionDurationMS;
     public int trialIndex;
     public string imageName;
-    public int groundTruthIsFake;
+    public bool groundTruthIsFake;
     public bool userchoice;
     public int accuracy;
     public int reactionTimeMS;
@@ -35,13 +34,17 @@ public class CSVLogParser : MonoBehaviour
         string logsDir = Path.Combine(Application.persistentDataPath, "Logs");
         filePath = Path.Combine(logsDir, $"player_{GameConfigManager.Config.playerID}_trials.csv");
 
-        data = LoadData(filePath);
+        //data = LoadData(filePath);
+        //PrintAllParsedData(data);
 
     }
 
     public List<CSVDataForStatistics> Load()
     {
-        return LoadData(filePath);
+        data =  LoadData(filePath);
+        PrintAllParsedData(data);
+        return data;
+        
     }
 
     private List<CSVDataForStatistics> LoadData(string filePath)
@@ -55,14 +58,27 @@ public class CSVLogParser : MonoBehaviour
 
         string[] lines = File.ReadAllLines(filePath);
 
+
+
         //header is skipped
         for (int i = 1; i < lines.Length; i++)
         {
             if (string.IsNullOrWhiteSpace(lines[i]))
             { continue; }
 
-            string[] values = lines[i].Split(',');
 
+            //Parses based on function, because if i used "," it could crash at whyText
+            List<string> values = ParseCsvLine(lines[i]);
+
+            /* Debugging
+
+            Debug.Log($"Line {i}: values count = {values.Count}");
+
+            for (int v = 0; v < values.Count; v++)
+            {
+                Debug.Log($"values[{v}] = '{values[v]}'");
+            }
+            */
             CSVDataForStatistics trial = new CSVDataForStatistics();
 
             trial.playerID = values[0];
@@ -71,18 +87,24 @@ public class CSVLogParser : MonoBehaviour
             trial.sessionDurationMS = int.Parse(values[3]);
             trial.trialIndex = int.Parse(values[4]);
             trial.imageName = values[5];
-            trial.groundTruthIsFake = int.Parse(values[6]);
-            trial.userchoice = bool.Parse(values[7]);
+            trial.groundTruthIsFake = values[6] == "fake";
+            trial.userchoice = values[7] == "fake";
             trial.accuracy = int.Parse(values[8]);
             trial.reactionTimeMS = int.Parse(values[9]);
-            trial.lastLocal = ParseVec2(values[10]);
-            trial.lastNormal = ParseVec2(values[11]);
-            trial.togglechecked = bool.Parse(values[12]);
-            trial.confidence = float.Parse(values[13]);
-            trial.realclicked = int.Parse(values[14]);
-            trial.fakeclicked = int.Parse(values[15]);
-            trial.whyText = values[16];
-            trial.currentCategory = values[17];
+            trial.lastLocal = new Vector2(
+                    float.Parse(values[10], CultureInfo.InvariantCulture),
+                    float.Parse(values[11], CultureInfo.InvariantCulture)
+                );
+            trial.lastNormal = new Vector2(
+                    float.Parse(values[12], CultureInfo.InvariantCulture),
+                    float.Parse(values[13], CultureInfo.InvariantCulture)
+                );
+            trial.togglechecked = bool.Parse(values[14]);
+            trial.confidence = float.Parse(values[15], CultureInfo.InvariantCulture);
+            trial.realclicked = int.Parse(values[16]);
+            trial.fakeclicked = int.Parse(values[17]);
+            trial.whyText = values[18];
+            trial.currentCategory = values[19];
 
             loadedData.Add(trial);
         }
@@ -90,16 +112,76 @@ public class CSVLogParser : MonoBehaviour
         return loadedData;
     }
 
-    private Vector2 ParseVec2(string value)
+
+    private void PrintAllParsedData(List<CSVDataForStatistics> parsedData)
     {
-        value = value.Replace("(", "").Replace(")", "");
+        Debug.Log($"--- CSV parsed entries: {parsedData.Count} ---");
 
-        string[] parts = value.Split(',');
+        for (int i = 0; i < parsedData.Count; i++)
+        {
+            CSVDataForStatistics trial = parsedData[i];
 
-        float x = float.Parse(parts[0], CultureInfo.InvariantCulture);
-        float y = float.Parse(parts[1], CultureInfo.InvariantCulture);
+            Debug.Log(
+                $"Entry {i}\n" +
+                $"playerID: {trial.playerID}\n" +
+                $"sessionID: {trial.sessionID}\n" +
+                $"sessionStartTime: {trial.sessionStartTime}\n" +
+                $"sessionDurationMS: {trial.sessionDurationMS}\n" +
+                $"trialIndex: {trial.trialIndex}\n" +
+                $"imageName: {trial.imageName}\n" +
+                $"groundTruthIsFake: {trial.groundTruthIsFake}\n" +
+                $"userchoice: {trial.userchoice}\n" +
+                $"accuracy: {trial.accuracy}\n" +
+                $"reactionTimeMS: {trial.reactionTimeMS}\n" +
+                $"lastLocal: {trial.lastLocal}\n" +
+                $"lastNormal: {trial.lastNormal}\n" +
+                $"togglechecked: {trial.togglechecked}\n" +
+                $"confidence: {trial.confidence}\n" +
+                $"realclicked: {trial.realclicked}\n" +
+                $"fakeclicked: {trial.fakeclicked}\n" +
+                $"whyText: {trial.whyText}\n" +
+                $"currentCategory: {trial.currentCategory}"
+            );
+        }
+    }
 
-        return new Vector2(x, y);
+    private List<string> ParseCsvLine(string line)
+    {
+        List<string> values = new List<string>();
+        bool insideQuotes = false;
+        string currentValue = "";
+
+        for (int i = 0; i < line.Length; i++)
+        {
+            char c = line[i];
+
+            if (c == '"')
+            {
+                // Handles escaped quotes: ""
+                if (insideQuotes && i + 1 < line.Length && line[i + 1] == '"')
+                {
+                    currentValue += '"';
+                    i++;
+                }
+                else
+                {
+                    insideQuotes = !insideQuotes;
+                }
+            }
+            else if (c == ',' && !insideQuotes)
+            {
+                values.Add(currentValue);
+                currentValue = "";
+            }
+            else
+            {
+                currentValue += c;
+            }
+        }
+
+        values.Add(currentValue);
+
+        return values;
     }
 
 }

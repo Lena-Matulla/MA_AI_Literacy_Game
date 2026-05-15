@@ -9,6 +9,7 @@ public class ClickHandler : MonoBehaviour
     
     [SerializeField]
     public GameObject ImageGamePanel;
+    public Statistic statisic;
 
     void Update()
     {
@@ -47,6 +48,11 @@ public class ClickHandler : MonoBehaviour
                     //handle interaction
                     Debug.Log("Laptop item clicked!");
                     ImageGamePanel.SetActive(true);
+                }
+                else if (hit.collider.CompareTag("Notebook"))
+                {
+                    Debug.Log("Notebook item clicked!");
+                    statisic.LoadData();
                 }
             }
         }

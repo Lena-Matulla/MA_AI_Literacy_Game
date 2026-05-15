@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 93635430}
   m_Layer: 0
   m_Name: Sprites
-  m_TagString: Untagged
+  m_TagString: Notebook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12064,6 +12064,64 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7632885, y: 0.6358261}
   m_EdgeRadius: 0
+--- !u!1 &310301464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 310301466}
+  - component: {fileID: 310301465}
+  - component: {fileID: 310301467}
+  m_Layer: 0
+  m_Name: Statistic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &310301465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310301464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce53a700642e4b45af6601ea99a37d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CSVLogParser
+--- !u!4 &310301466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310301464}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 832.1638, y: 509.12207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &310301467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310301464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3e7aad9242f51469f95fe1caff050c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Statistic
+  csvLogParser: {fileID: 310301465}
 --- !u!1 &318089255
 GameObject:
   m_ObjectHideFlags: 0
@@ -23205,6 +23263,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VisualFadeSpawn
   fadeTime: 2
+--- !u!1 &1105154053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1105154055}
+  - component: {fileID: 1105154054}
+  m_Layer: 0
+  m_Name: Bootstrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1105154054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105154053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1088a5ead892eda49ab09625c7a749db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bootstrap
+--- !u!4 &1105154055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105154053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 832.1638, y: 509.12207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1106397507
 GameObject:
   m_ObjectHideFlags: 0
@@ -36880,6 +36982,7 @@ MonoBehaviour:
   deskCam: {fileID: 824824421}
   officeCam: {fileID: 441683806}
   ImageGamePanel: {fileID: 6107918401176400753}
+  statisic: {fileID: 310301467}
 --- !u!1 &1542908055
 GameObject:
   m_ObjectHideFlags: 0
@@ -44851,7 +44954,7 @@ GameObject:
   - component: {fileID: 2015007753}
   m_Layer: 0
   m_Name: Notebook
-  m_TagString: Untagged
+  m_TagString: Notebook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51596,3 +51699,5 @@ SceneRoots:
   - {fileID: 820512857}
   - {fileID: 2027753842}
   - {fileID: 1894418962}
+  - {fileID: 1105154055}
+  - {fileID: 310301466}
