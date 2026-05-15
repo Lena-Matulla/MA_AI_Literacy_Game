@@ -1,10 +1,13 @@
 using UnityEngine;
 using System;
 using System.IO;
+using System.Globalization;
 
 public class DataLogger : MonoBehaviour
 {
+    public string PlayerId { get; private set; }
     public string SessionId { get; private set; }
+
     public string FilePath { get; private set; }
 
     private bool _headerWritten = false;
@@ -14,14 +17,17 @@ public class DataLogger : MonoBehaviour
 
     private void Awake()
     {
-        SessionId = Guid.NewGuid().ToString("N");
-        _sessionStartTime = DateTime.Now;
+        //get playerID and SessionID from Managers
+        PlayerId = GameConfigManager.Config.playerID;
+
+        SessionId = SessionIDManager.SessionID;
+        _sessionStartTime = SessionIDManager.sessionStartTime;
         _sessionStartTimeString = _sessionStartTime.ToString("yyyy-MM-dd HH:mm:ss");
 
         string logsDir = Path.Combine(Application.persistentDataPath, "Logs");
         Directory.CreateDirectory(logsDir);
 
-        FilePath = Path.Combine(logsDir, $"session_{SessionId}_trials.csv");
+        FilePath = Path.Combine(logsDir, $"player_{PlayerId}_trials.csv");
 
         WriteHeaderIfNeeded();
         Debug.Log($"Logging to: {FilePath}");
@@ -32,7 +38,7 @@ public class DataLogger : MonoBehaviour
         if (_headerWritten) return;
         if(!File.Exists(FilePath) || new FileInfo(FilePath).Length == 0 )
         {
-            string header = "session_id,session_start_date,session_duration_ms,trial_index,image_name,ground_truth,user_choice,accuracy,reaction_time_ms, lastlocal, lastnormal,OverallToggleChecked, confidence, RealclickedInTrial, FakeClickedInTrial, whyText, currentCategory\n";
+            string header = "player_id,session_id,session_start_date,session_duration_ms,trial_index,image_name,ground_truth,user_choice,accuracy,reaction_time_ms, lastlocal, lastnormal,OverallToggleChecked, confidence, RealclickedInTrial, FakeClickedInTrial, whyText, currentCategory\n";
             File.AppendAllText(FilePath, header);
         }
         _headerWritten = true;
@@ -61,7 +67,26 @@ public class DataLogger : MonoBehaviour
 
         int sessionDurationMs = (int)(DateTime.Now - _sessionStartTime).TotalMilliseconds;
 
-        string line = $"{ SessionId }, {EscapeCsv(_sessionStartTimeString)},{sessionDurationMs},{ trialIndex},{ EscapeCsv(imageName)},{ groundTruth},{ userChoice},{ accuracy},{ reactionTimeMs},{lastLocal},{lastNormal},{toggleChecked},{confidence},{realclicked},{fakeclicked}, {whyText}, {currentCategory}\n";
+        string line = $"{EscapeCsv(PlayerId)}," +
+                    $"{EscapeCsv(SessionId)}," +
+                    $"{EscapeCsv(_sessionStartTimeString)}," +
+                    $"{sessionDurationMs}," +
+                    $"{trialIndex}," +
+                    $"{EscapeCsv(imageName)}," +
+                    $"{groundTruth}," +
+                    $"{userChoice}," +
+                    $"{accuracy}," +
+                    $"{reactionTimeMs}," +
+                    $"{EscapeCsv(lastLocal.ToString())}," +
+                    $"{EscapeCsv(lastNormal.ToString())}," +
+                    $"{toggleChecked}," +
+                    $"{confidence.ToString(CultureInfo.InvariantCulture)}," +
+                    $"{realclicked}," +
+                    $"{fakeclicked}," +
+                    $"{EscapeCsv(whyText)}," +
+                    $"{EscapeCsv(currentCategory)}\n";
+
+
         File.AppendAllText(FilePath, line );
     }
 
