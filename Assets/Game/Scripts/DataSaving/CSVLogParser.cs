@@ -11,7 +11,9 @@ public class CSVDataForStatistics
     public int sessionDurationMS;
     public int trialIndex;
     public string imageName;
+    // is it fake? fake = true, real = false
     public bool groundTruthIsFake;
+    // did user chose fake? fake = true, real = false
     public bool userchoice;
     public int accuracy;
     public int reactionTimeMS;
