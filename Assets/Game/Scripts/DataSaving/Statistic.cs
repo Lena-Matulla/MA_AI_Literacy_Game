@@ -9,9 +9,13 @@ public class Statistic : MonoBehaviour
     public CSVLogParser csvLogParser;
 
     public List<CSVDataForStatistics> data = new List<CSVDataForStatistics>();
+
+    [SerializeField] private StatisticVisualize statisticVisualize;
+
     void Start()
     {
         //LoadData();
+        
     }
 
     public void LoadData()
@@ -36,6 +40,7 @@ public class Statistic : MonoBehaviour
             }
             else
             {
+                dic[categorie] = 0;
                 Debug.Log(categorie + ": No Data Yet");
             }
         }
@@ -49,12 +54,13 @@ public class Statistic : MonoBehaviour
             }
             else
             {
+                dicRF[s] = 0;
                 Debug.Log(s + ": No Data Yet");
             }
         }
 
         float SusBias = CalculateSuspicionBias(data);
-        Debug.Log("SusBias: " + SusBias + "%");
+        Debug.Log("SusBias: " + SusBias);
         
         float falsePosRate = CalculateFalsePositiveOrNegativeRate(data, true);
         Debug.Log("False Positive Rate: " + falsePosRate.ToString("F2") + "%");
@@ -64,7 +70,7 @@ public class Statistic : MonoBehaviour
         Debug.Log("False Negative Rate: " + falseNegRate.ToString("F2") + "%");
 
         float averConfidence = CalculateAverageConfidence(data);
-        Debug.Log("Average Confidence: " +  averConfidence + "%");
+        Debug.Log("Average Confidence: " +  averConfidence );
 
         Dictionary<string,float> dicConf = CalculateConfidenceByCorrectness(data);
         foreach(string st in state)
@@ -75,11 +81,12 @@ public class Statistic : MonoBehaviour
             }
             else
             {
+                dicConf[st] = 0;
                 Debug.Log(st + ": No Data Yet");
             }
         }
 
-
+        statisticVisualize.UpdateData(accuracy,dic,dicRF,SusBias,falsePosRate,falseNegRate,averConfidence, dicConf);  
     }
 
     // Overall Accuracy
