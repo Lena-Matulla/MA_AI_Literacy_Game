@@ -164,7 +164,7 @@ public class Statistic : MonoBehaviour
             selectedFake = fakeGroup.Count();
         }
 
-        susBias = (float)selectedFake / trials.Count();
+        susBias = (float)selectedFake / trials.Count() * 100;
         return susBias;
 
     }

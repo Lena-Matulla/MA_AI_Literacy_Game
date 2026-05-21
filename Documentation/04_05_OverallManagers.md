@@ -26,3 +26,18 @@ See chapter 5.
 
 ## Responsibilities
 - saves progress in persistent Data path
+
+# Statistic
+
+## Purpose
+Here the logic is handled to calculate statistics and showcase them on the tablet.
+
+## Components
+Scripts:
+- CSVLogParser.cs
+- Statistic.cs
+- StatisticVisualize.cs
+
+## Responsibilities
+
+Calculate and showcase the statistic if needed.
