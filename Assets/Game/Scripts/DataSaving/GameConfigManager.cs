@@ -29,7 +29,7 @@ public class GameConfigManager
         {
             Config = new GameConfig
             {
-                playerID = Guid.NewGuid().ToString(),
+                playerID = "",//Guid.NewGuid().ToString(),
                 experimentID = "EXP_001",
                 serverURL = "default",
                 createdAt = DateTime.UtcNow.ToString("o")
@@ -50,7 +50,7 @@ public class GameConfigManager
 
         if (string.IsNullOrWhiteSpace(Config.playerID))
         {
-            Config.playerID = Guid.NewGuid().ToString();
+            Config.playerID = "";//Guid.NewGuid().ToString();
             changed = true;
         }
 
@@ -79,6 +79,12 @@ public class GameConfigManager
         File.WriteAllText(ConfigPath, json);
     }
 
+    public static void SetPlayerID(string playerID)
+    {
+        Config.playerID = playerID;
+        SaveConfig();
+    }
+
     public static void SetExperimentID(string experimentID)
     {
         Config.experimentID = experimentID;
@@ -93,7 +99,7 @@ public class GameConfigManager
 
     public static void ResetPlayerID()
     {
-        Config.playerID = Guid.NewGuid().ToString();
+        Config.playerID = "";//"Guid.NewGuid().ToString()";
         SaveConfig();
     }
 }
