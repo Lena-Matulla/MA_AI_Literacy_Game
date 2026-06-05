@@ -52,9 +52,9 @@ public class ClickHandler : MonoBehaviour
                     Debug.Log("Laptop item clicked!");
                     ImageGamePanel.SetActive(true);
                 }
-                else if (hit.collider.CompareTag("Notebook"))
+                else if (hit.collider.CompareTag("Tablet"))
                 {
-                    Debug.Log("Notebook item clicked!");
+                    Debug.Log("Tablet item clicked!");
                     TabletPanel.SetActive(true);
                     statisic.LoadData();
                     
