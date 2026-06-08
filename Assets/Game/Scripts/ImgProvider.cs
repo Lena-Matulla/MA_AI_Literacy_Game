@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
+using UnityEngine.Events;
 
 
 public enum ImgCategory
@@ -21,6 +21,7 @@ public class ImgEntry
     public string fileName;
     public bool isFake;
     public ImgCategory category;
+    public string id;
 }
 
 
@@ -32,6 +33,10 @@ public class ImgProvider : MonoBehaviour
     private List<ImgEntry> allImages;
     Dictionary<ImgCategory, List<ImgEntry>> categorizedImages;
 
+    //to make a random but balanced study order of images
+    private List<ImgEntry> studyOrder;
+    private int studyIndex = 0;
+
     public ImgEntry CurrentImgEntry {  get; private set; }
     public bool currentIsFake { get; private set; }
     public string currentImgName { get; private set; }
@@ -41,6 +46,13 @@ public class ImgProvider : MonoBehaviour
     private string basePath;
 
     private bool isInitialized = false;
+
+
+    [Header("Study Events")]
+    public UnityEvent onStudyFinished;
+
+    public bool IsStudyFinished { get; private set; }
+
 
     public void Initialize()
     {
@@ -62,7 +74,13 @@ public class ImgProvider : MonoBehaviour
             return;
         }
 
-        MakeDictionary();
+        //MakeDictionary();
+        if (!TryLoadStudyProgress())
+        {
+            BuildBalancedStudyOrder();
+            IsStudyFinished = false;
+            SaveStudyProgress();
+        }
 
         isInitialized = true;
     }
@@ -138,13 +156,16 @@ public class ImgProvider : MonoBehaviour
                 {
                     tex.name = Path.GetFileNameWithoutExtension(file);
 
+                    string fileName = Path.GetFileName(file);
+
                     ImgEntry entry = new ImgEntry
                     {
                         texture = tex,
                         filePath = file,
                         fileName = Path.GetFileName(file),
                         isFake = isFake,
-                        category = cat
+                        category = cat,
+                        id = CreateImageId(cat, isFake, fileName)
                     };
 
                     allImages.Add(entry);
@@ -164,69 +185,254 @@ public class ImgProvider : MonoBehaviour
 
         foreach (Texture2D fallbackTexture in fallbackTextures)
         {
+
+            string fName = fallbackTexture.name + ".jpg";
             ImgEntry entry = new ImgEntry
             {
                 texture = fallbackTexture,
                 filePath = null,
-                fileName = fallbackTexture.name + ".jpg",
+                fileName = fName,
                 isFake = isFake,
-                category = cat
+                category = cat,
+                id = CreateImageId(cat, isFake, fName)
             };
             allImages.Add(entry);
         }
     }
 
+    /*
     private void MakeDictionary()
     {
         categorizedImages = allImages.GroupBy(i => i.category).ToDictionary(g => g.Key, g => g.ToList());
     }
+    */
 
-    public void LoadRandomImage()
+    // builds a list with the order of the images chosen in the study
+    // this makes sure that it is random but still balanced
+    private void BuildBalancedStudyOrder()
+    {
+        studyOrder = new List<ImgEntry>();
+        studyIndex = 0;
+
+        List<List<ImgEntry>> groups = new List<List<ImgEntry>>();
+
+        //for each category get a list of the real imgEntry and fake imgEntry
+        foreach (ImgCategory category in Enum.GetValues(typeof(ImgCategory)))
+        {
+            List<ImgEntry> realGroup = allImages
+            .Where(i => i.category == category && i.isFake == false)
+            .OrderBy(i => UnityEngine.Random.value)
+            .ToList();
+
+            List<ImgEntry> fakeGroup = allImages
+                .Where(i => i.category == category && i.isFake == true)
+                .OrderBy(i => UnityEngine.Random.value)
+                .ToList();
+
+            if (realGroup.Count > 0)
+                groups.Add(realGroup);
+
+            if (fakeGroup.Count > 0)
+                groups.Add(fakeGroup);
+        }
+
+        bool stillHasImages = true;
+
+        // creates a randomized but balanced order, by repeatedly taking one image
+        // from each category/fake-real group until all images are used.
+        while (stillHasImages)
+        {
+            stillHasImages = false;
+
+            List<List<ImgEntry>> shuffledGroups = groups
+                .Where(g => g.Count > 0)
+                .OrderBy(g => UnityEngine.Random.value)
+                .ToList();
+
+            foreach (List<ImgEntry> group in shuffledGroups)
+            {
+                ImgEntry entry = group[0];
+                group.RemoveAt(0);
+
+                studyOrder.Add(entry);
+                stillHasImages = true;
+            }
+        }
+
+    }
+
+
+    public bool LoadNextStudyImage()
     {
         Initialize();
 
-        if (categorizedImages == null || categorizedImages.Count == 0)
+        if (studyOrder == null || studyOrder.Count == 0)
         {
-            Debug.LogWarning("categorizedImages is empty or not initialized.");
-            return;
+            Debug.LogWarning("Study order is empty.");
+            FinishStudy();
+            return false;
         }
 
-        //chose one category randomly
-        ImgCategory[] categories = (ImgCategory[])Enum.GetValues(typeof(ImgCategory));
-
-        ImgCategory randomCategory = categories[UnityEngine.Random.Range(0, categories.Length)];
-
-        //fallback if category has no images
-        if (!categorizedImages.ContainsKey(randomCategory))
+        if (studyIndex >= studyOrder.Count)
         {
-            Debug.LogWarning("No images for category: " + randomCategory);
-            return;
+            FinishStudy();
+            return false;
         }
 
-        List<ImgEntry> images = categorizedImages[randomCategory];
-
-        bool chooseFake = UnityEngine.Random.value > 0.5f;
-
-        //get images with correct category and correct bool
-        List<ImgEntry> matchingImages = images.Where(i => i.isFake == chooseFake).ToList();
-        ImgEntry chosenEntry = null;
-
-        if (matchingImages.Count > 0)
-        {
-            chosenEntry = matchingImages[UnityEngine.Random.Range(0, matchingImages.Count)];
-
-            Debug.Log(chosenEntry.fileName);
-        }
-        else
-        {
-            Debug.LogWarning("No matching images found.");
-        }
+        ImgEntry chosenEntry = studyOrder[studyIndex];
 
         CurrentImgEntry = chosenEntry;
-        currentIsFake = chooseFake;
-        targetImage.texture = chosenEntry != null ? chosenEntry.texture : null;
-        currentImgName = chosenEntry != null ? chosenEntry.fileName : "";
-        currentCategory = randomCategory.ToString();
+        currentIsFake = chosenEntry.isFake;
+        currentImgName = chosenEntry.fileName;
+        currentCategory = chosenEntry.category.ToString();
 
+        targetImage.texture = chosenEntry.texture;
+
+        Debug.Log("Loaded image: " + chosenEntry.fileName);
+
+        return true;
     }
+
+    //creates ID for images
+    private string CreateImageId(ImgCategory category, bool isFake, string fileName)
+    {
+        string realFakeName = isFake ? "Fake" : "Real";
+
+        return category.ToString() + "/" + realFakeName + "/" + fileName;
+    }
+
+   
+    public void ConfirmCurrentImageCompleted()
+    {
+        if (IsStudyFinished)
+            return;
+
+        studyIndex++;
+        SaveStudyProgress();
+
+        if (studyIndex >= studyOrder.Count)
+        {
+            FinishStudy();
+        }
+    }
+
+    private void FinishStudy()
+    {
+        Debug.Log("Study finished. No unused images left.");
+
+        IsStudyFinished = true;
+
+        if (targetImage != null)
+            targetImage.texture = null;
+
+        CurrentImgEntry = null;
+        currentIsFake = false;
+        currentImgName = "";
+        currentCategory = "";
+
+        SaveStudyProgress();
+
+        onStudyFinished?.Invoke();
+    }
+
+    //save current progress of images
+    private void SaveStudyProgress()
+    {
+        GameProgressData data = SaveManager.Load();
+
+        data.studyOrderImageIds = studyOrder.Select(i => i.id).ToList();
+        data.studyIndex = studyIndex;
+        data.studyFinished = IsStudyFinished;
+
+        SaveManager.Save(data);
+    }
+
+    //Load current progress of study images
+    private bool TryLoadStudyProgress()
+    {
+        GameProgressData data = SaveManager.Load();
+
+        if (data.studyOrderImageIds == null || data.studyOrderImageIds.Count == 0)
+            return false;
+
+        Dictionary<string, ImgEntry> imageLookup = allImages.ToDictionary(i => i.id, i => i);
+
+        List<ImgEntry> loadedOrder = new List<ImgEntry>();
+
+        foreach (string id in data.studyOrderImageIds)
+        {
+            if (imageLookup.TryGetValue(id, out ImgEntry entry))
+            {
+                loadedOrder.Add(entry);
+            }
+            else
+            {
+                Debug.LogWarning("Saved image was not found anymore: " + id);
+            }
+        }
+
+        if (loadedOrder.Count == 0)
+            return false;
+
+        studyOrder = loadedOrder;
+        studyIndex = Mathf.Clamp(data.studyIndex, 0, studyOrder.Count);
+        IsStudyFinished = data.studyFinished || studyIndex >= studyOrder.Count;
+
+        Debug.Log("Loaded study progress: " + studyIndex + " / " + studyOrder.Count);
+
+        return true;
+    }
+
+
+
+
+    //old version of LoadRandomImage()
+    /*
+    
+    Initialize();
+
+    if (categorizedImages == null || categorizedImages.Count == 0)
+    {
+        Debug.LogWarning("categorizedImages is empty or not initialized.");
+        return;
+    }
+
+    //chose one category randomly
+    ImgCategory[] categories = (ImgCategory[])Enum.GetValues(typeof(ImgCategory));
+
+    ImgCategory randomCategory = categories[UnityEngine.Random.Range(0, categories.Length)];
+
+    //fallback if category has no images
+    if (!categorizedImages.ContainsKey(randomCategory))
+    {
+        Debug.LogWarning("No images for category: " + randomCategory);
+        return;
+    }
+
+    List<ImgEntry> images = categorizedImages[randomCategory];
+
+    bool chooseFake = UnityEngine.Random.value > 0.5f;
+
+    //get images with correct category and correct bool
+    List<ImgEntry> matchingImages = images.Where(i => i.isFake == chooseFake).ToList();
+    ImgEntry chosenEntry = null;
+
+    if (matchingImages.Count > 0)
+    {
+        chosenEntry = matchingImages[UnityEngine.Random.Range(0, matchingImages.Count)];
+
+        Debug.Log(chosenEntry.fileName);
+    }
+    else
+    {
+        Debug.LogWarning("No matching images found.");
+    }
+
+    CurrentImgEntry = chosenEntry;
+    currentIsFake = chooseFake;
+    targetImage.texture = chosenEntry != null ? chosenEntry.texture : null;
+    currentImgName = chosenEntry != null ? chosenEntry.fileName : "";
+    currentCategory = randomCategory.ToString();
+    */
 }
+

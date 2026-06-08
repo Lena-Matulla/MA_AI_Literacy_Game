@@ -35,5 +35,8 @@ Thumbs.db
 *.ipa
 *.unitypackage
 
+#ignore the testrun
+TestRun7/
+
 # Your paid tileset folder
 /Assets/Tileset/Paid/

@@ -119,11 +119,10 @@ public class ProgressManager : MonoBehaviour
 
     public void SaveProgress()
     {
-        GameProgressData data = new GameProgressData
-        {
-            currentPoints = currentPoints,
-            currentLevel = currentLevel
-        };
+        GameProgressData data = SaveManager.Load();
+
+        data.currentPoints = currentPoints;
+        data.currentLevel = currentLevel;
 
         SaveManager.Save(data);
     }

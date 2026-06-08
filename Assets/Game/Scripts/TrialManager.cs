@@ -280,7 +280,7 @@ public class TrialManager : MonoBehaviour
             ScoreThisRoundTextField.text = ScoreThisRound.ToString();
         }
 
-
+        imageProvider.ConfirmCurrentImageCompleted();
         ExitConfidenceState();
     }
 
@@ -305,10 +305,19 @@ public class TrialManager : MonoBehaviour
     //reset to new trial with new image 
     private void StartNewTrial()
     {
+        
+
+        bool hasImage = imageProvider.LoadNextStudyImage();
+
+        if (!hasImage)
+        {
+            EndStudy();
+            return;
+        }
+
         _trialIndex++;
         _hasAnsweredThisTrial = false;
 
-        imageProvider.LoadRandomImage();
         _trialStartTime = Time.time;
         marked = false;
         latestlocal = new Vector2(-1000, -1000);
@@ -346,7 +355,24 @@ public class TrialManager : MonoBehaviour
     }
 
 
+    private void EndStudy()
+    {
+        Debug.Log("All study images completed.");
 
+        _state = TrialState.Answering;
+
+        realButton.interactable = false;
+        fakeButton.interactable = false;
+        confirmeButton.interactable = false;
+        confirmeMarked.interactable = false;
+        toggle.interactable = false;
+
+        interactionLayer.gameObject.SetActive(false);
+        Markerpart.gameObject.SetActive(false);
+        confidencePanel.SetActive(false);
+
+        //TODO: show an end screen here
+    }
 
 
 
