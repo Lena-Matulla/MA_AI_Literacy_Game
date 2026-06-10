@@ -39,4 +39,4 @@ Thumbs.db
 TestRun*/
 
 # Your paid tileset folder
-/Assets/Tileset/Paid/
+#/Assets/Tileset/Paid/
