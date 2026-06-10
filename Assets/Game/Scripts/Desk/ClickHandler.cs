@@ -11,6 +11,7 @@ public class ClickHandler : MonoBehaviour
     public GameObject ImageGamePanel;
     public Statistic statisic;
     public GameObject TabletPanel;
+    public GameObject Notebook;
 
     void Update()
     {
@@ -18,7 +19,8 @@ public class ClickHandler : MonoBehaviour
         //if mouse clicked
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
-            if (ImageGamePanel.activeSelf || TabletPanel.activeSelf) { return; }
+            //dont interact if one of the three is open
+            if (ImageGamePanel.activeSelf || TabletPanel.activeSelf || Notebook.activeSelf) { return; }
 
             //take current cam based on screen position
             Camera activeCam;
@@ -58,6 +60,10 @@ public class ClickHandler : MonoBehaviour
                     TabletPanel.SetActive(true);
                     statisic.LoadData();
                     
+                }else if (hit.collider.CompareTag("Notebook"))
+                {
+                    Debug.Log("Notebook item clicked!");
+                    Notebook.SetActive(true);
                 }
             }
         }
