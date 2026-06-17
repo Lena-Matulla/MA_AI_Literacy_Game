@@ -10,4 +10,5 @@ public class GameProgressData
     public List<string> studyOrderImageIds = new List<string>();
     public int studyIndex = 0;
     public bool studyFinished = false;
+    public int playthroughs = 0;
 }

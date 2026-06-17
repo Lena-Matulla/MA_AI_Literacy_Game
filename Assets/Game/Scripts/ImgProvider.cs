@@ -53,6 +53,8 @@ public class ImgProvider : MonoBehaviour
 
     public bool IsStudyFinished { get; private set; }
 
+    public int playthroughs { get; private set; }
+
 
     public void Initialize()
     {
@@ -318,10 +320,11 @@ public class ImgProvider : MonoBehaviour
 
     private void FinishStudy()
     {
-        Debug.Log("Study finished. No unused images left.");
+        Debug.Log("Study finished. No unused images left. -> reshuffle");
 
-        IsStudyFinished = true;
+        playthroughs++;
 
+        /*
         if (targetImage != null)
             targetImage.texture = null;
 
@@ -333,6 +336,12 @@ public class ImgProvider : MonoBehaviour
         SaveStudyProgress();
 
         onStudyFinished?.Invoke();
+        */
+        BuildBalancedStudyOrder();
+        IsStudyFinished = false;
+        SaveStudyProgress();
+
+
     }
 
     //save current progress of images
@@ -343,6 +352,7 @@ public class ImgProvider : MonoBehaviour
         data.studyOrderImageIds = studyOrder.Select(i => i.id).ToList();
         data.studyIndex = studyIndex;
         data.studyFinished = IsStudyFinished;
+        data.playthroughs = playthroughs;
 
         SaveManager.Save(data);
     }

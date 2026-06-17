@@ -61,7 +61,7 @@ public class CommunicationToken
 
         points = progress.currentPoints;
         level = progress.currentLevel;
-        playthroughs = 1;
+        playthroughs = progress.playthroughs;
 
     }
     
