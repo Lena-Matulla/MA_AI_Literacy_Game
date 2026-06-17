@@ -8,6 +8,7 @@ using System.IO;
 public class GameConfig
 {
     public string playerID;
+    public string password;
     public string experimentID;
     public string serverURL;
     public string createdAt;
@@ -30,6 +31,7 @@ public class GameConfigManager
             Config = new GameConfig
             {
                 playerID = "",//Guid.NewGuid().ToString(),
+                password = "",
                 experimentID = "EXP_001",
                 serverURL = "default",
                 createdAt = DateTime.UtcNow.ToString("o")
@@ -51,6 +53,12 @@ public class GameConfigManager
         if (string.IsNullOrWhiteSpace(Config.playerID))
         {
             Config.playerID = "";//Guid.NewGuid().ToString();
+            changed = true;
+        }
+
+        if (Config.password == null)
+        {
+            Config.password = "";
             changed = true;
         }
 
@@ -82,6 +90,12 @@ public class GameConfigManager
     public static void SetPlayerID(string playerID)
     {
         Config.playerID = playerID;
+        SaveConfig();
+    }
+
+    public static void SetPassword(string password)
+    {
+        Config.password = password;
         SaveConfig();
     }
 
