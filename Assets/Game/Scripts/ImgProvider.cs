@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 
 
+/*
 public enum ImgCategory
 {
     Human,
@@ -14,13 +15,14 @@ public enum ImgCategory
     Architecture,
     Text
 }
+*/
 public class ImgEntry
 {
     public Texture2D texture;
     public string filePath;
     public string fileName;
     public bool isFake;
-    public ImgCategory category;
+    public string category;
     public string id;
 }
 
@@ -31,7 +33,7 @@ public class ImgProvider : MonoBehaviour
     public RawImage targetImage;
 
     private List<ImgEntry> allImages;
-    Dictionary<ImgCategory, List<ImgEntry>> categorizedImages;
+    Dictionary<string, List<ImgEntry>> categorizedImages;
 
     //to make a random but balanced study order of images
     private List<ImgEntry> studyOrder;
@@ -55,6 +57,15 @@ public class ImgProvider : MonoBehaviour
 
     public int playthroughs { get; private set; }
 
+
+    [SerializeField]
+    private List<string> fallbackCategories = new List<string>
+    {
+        "Human",
+        "Animals",
+        "Architecture",
+        "Text"
+    };
 
     public void Initialize()
     {
@@ -110,39 +121,77 @@ public class ImgProvider : MonoBehaviour
 
     private void LoadFolders()
     {
-        foreach (ImgCategory category in Enum.GetValues(typeof(ImgCategory)))
-        {
-            string name = category.ToString();
+        Directory.CreateDirectory(basePath);
 
-            LoadRealOrFake(category, name, false);
-            LoadRealOrFake(category, name, true);
+        string[] categoryFolders = Directory.GetDirectories(basePath);
+
+        bool loadedExternalImages = false;
+
+        //Case 1: if there is an ImageData folder besides the exe AND it contains folders which define the categories
+        if (categoryFolders.Length > 0)
+        {
+            foreach (string categoryFolder in categoryFolders)
+            {
+                string categoryName = Path.GetFileName(categoryFolder);
+
+                int realCount = LoadRealOrFakeExternal(categoryName, false);
+                int fakeCount = LoadRealOrFakeExternal(categoryName, true);
+
+
+                //check if there are images, if not exclude that category
+                if (realCount > 0 && fakeCount > 0)
+                {
+                    loadedExternalImages = true;
+                }
+                else
+                {
+                    Debug.LogWarning(
+                        $"Category '{categoryName}' is incomplete. " +
+                        $"Real: {realCount}, Fake: {fakeCount}. " +
+                        "This category will not be used."
+                    );
+
+                    allImages.RemoveAll(i => i.category == categoryName);
+                }
+            }
+        }
+
+        //Case 2: No ImageData folder or does not contain images
+        //Use fallback images and categories from resources
+        if (!loadedExternalImages)
+        {
+            Debug.LogWarning("No valid external categories found. Loading fallback categories from Resources.");
+
+            foreach (string categoryName in fallbackCategories)
+            {
+                LoadFallbackResources(Path.Combine(categoryName, "Real"), false, categoryName);
+                LoadFallbackResources(Path.Combine(categoryName, "Fake"), true, categoryName);
+            }
 
         }
     }
 
     //Loads the images of correct category and isFake state into allImages
     //checks if there is sth in the folders or not. Otherwise it loads the FallbackImages
-    private void LoadRealOrFake(ImgCategory category, string categoryName, bool isFake)
+    private int LoadRealOrFakeExternal(string categoryName, bool isFake)
     {
         string realFakeName = isFake ? "Fake" : "Real";
         string folderPath = Path.Combine(basePath, categoryName, realFakeName);
 
-        Directory.CreateDirectory(folderPath);
+        if (!Directory.Exists(folderPath))
+        {
+            Debug.LogWarning($"Missing folder: {folderPath}");
+            return 0;
+        }
 
         int beforeCount = allImages.Count;
 
-        LoadFolderIntoList(folderPath,isFake, category);
+        LoadFolderIntoList(folderPath, isFake, categoryName);
 
-        int loadedCount = allImages.Count - beforeCount;
-
-        if (loadedCount == 0)
-        {
-            Debug.LogWarning($"No {realFakeName} images found for {categoryName}. Loading fallback.");
-            LoadFallbackResources(Path.Combine(categoryName, realFakeName), isFake, category);
-        }
+        return allImages.Count - beforeCount;
     }
 
-    private void LoadFolderIntoList(string folderPath, bool isFake, ImgCategory cat)
+    private void LoadFolderIntoList(string folderPath, bool isFake, string cat)
     {
         string[] files = Directory.GetFiles(folderPath);
         foreach (string file in files)
@@ -181,7 +230,7 @@ public class ImgProvider : MonoBehaviour
         }
     }
 
-    private void LoadFallbackResources(string resourcesFolder, bool isFake, ImgCategory cat)
+    private void LoadFallbackResources(string resourcesFolder, bool isFake, string cat)
     {
         Texture2D[] fallbackTextures = Resources.LoadAll<Texture2D>(resourcesFolder);
 
@@ -219,7 +268,7 @@ public class ImgProvider : MonoBehaviour
         List<List<ImgEntry>> groups = new List<List<ImgEntry>>();
 
         //for each category get a list of the real imgEntry and fake imgEntry
-        foreach (ImgCategory category in Enum.GetValues(typeof(ImgCategory)))
+        foreach (string category in allImages.Select(i => i.category).Distinct())
         {
             List<ImgEntry> realGroup = allImages
             .Where(i => i.category == category && i.isFake == false)
@@ -286,7 +335,7 @@ public class ImgProvider : MonoBehaviour
         CurrentImgEntry = chosenEntry;
         currentIsFake = chosenEntry.isFake;
         currentImgName = chosenEntry.fileName;
-        currentCategory = chosenEntry.category.ToString();
+        currentCategory = chosenEntry.category;
 
         targetImage.texture = chosenEntry.texture;
 
@@ -296,11 +345,11 @@ public class ImgProvider : MonoBehaviour
     }
 
     //creates ID for images
-    private string CreateImageId(ImgCategory category, bool isFake, string fileName)
+    private string CreateImageId(string category, bool isFake, string fileName)
     {
         string realFakeName = isFake ? "Fake" : "Real";
 
-        return category.ToString() + "/" + realFakeName + "/" + fileName;
+        return category + "/" + realFakeName + "/" + fileName;
     }
 
    
@@ -369,6 +418,8 @@ public class ImgProvider : MonoBehaviour
 
         List<ImgEntry> loadedOrder = new List<ImgEntry>();
 
+        bool missingSavedImage = false;
+
         foreach (string id in data.studyOrderImageIds)
         {
             if (imageLookup.TryGetValue(id, out ImgEntry entry))
@@ -378,7 +429,15 @@ public class ImgProvider : MonoBehaviour
             else
             {
                 Debug.LogWarning("Saved image was not found anymore: " + id);
+                missingSavedImage = true;
             }
+        }
+
+        
+        if (missingSavedImage)
+        {
+            Debug.LogWarning("Image dataset changed. Rebuilding study order.");
+            return false;
         }
 
         if (loadedOrder.Count == 0)
