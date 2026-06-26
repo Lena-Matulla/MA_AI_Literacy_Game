@@ -12957,6 +12957,55 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.76691914, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &297104528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297104529}
+  - component: {fileID: 297104530}
+  m_Layer: 5
+  m_Name: PopUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &297104529
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297104528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2060230427}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &297104530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297104528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf85b2fcf51cd5479d3711899bd4ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopUpManager
+  CorrectPopUp: {fileID: 1309991787}
 --- !u!1 &307845034
 GameObject:
   m_ObjectHideFlags: 0
@@ -31421,13 +31470,14 @@ GameObject:
   - component: {fileID: 1309991791}
   - component: {fileID: 1309991790}
   - component: {fileID: 1309991789}
+  - component: {fileID: 1309991792}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1309991788
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31507,6 +31557,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309991787}
   m_CullTransparentMesh: 1
+--- !u!114 &1309991792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309991787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d2ed0ff3042d94fb8d74b25e4e9a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DisableAfterAnimation
 --- !u!1 &1312567732
 GameObject:
   m_ObjectHideFlags: 0
@@ -54543,6 +54605,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1309991788}
+  - {fileID: 297104529}
   m_Father: {fileID: 5896797038638839264}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -57327,6 +57390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479d9150c3fa13d43926245cf536d6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrialManager
+  onCorrectAnswer: {fileID: 8738408818857880168}
   imageProvider: {fileID: 7912624285733116467}
   dataLogger: {fileID: 8738408818857880167}
   interactionLayer: {fileID: 7382044225715744801}
@@ -59771,6 +59835,7 @@ GameObject:
   - component: {fileID: 5809089886442062639}
   - component: {fileID: 1632770561985273843}
   - component: {fileID: 8738408818857880167}
+  - component: {fileID: 8738408818857880168}
   m_Layer: 0
   m_Name: ImageGameManager
   m_TagString: Untagged
@@ -62739,6 +62804,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa1e8ba890d6454bbf02c298de54307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataLogger
+--- !u!114 &8738408818857880168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4815572550009250575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48cb4f5233d1aeb419cddcef3be2f8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OnCorrectAnswer
+  popUpManager: {fileID: 297104530}
+  scoreDelay: 0.7
+  ScoreThisRoundTextField: {fileID: 885536681898369295}
 --- !u!222 &8890983224858323138
 CanvasRenderer:
   m_ObjectHideFlags: 0
