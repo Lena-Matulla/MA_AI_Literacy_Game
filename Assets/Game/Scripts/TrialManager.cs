@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class TrialManager : MonoBehaviour
 {
+    [SerializeField] private OnCorrectAnswer onCorrectAnswer;
+
+
     [Header("Refs")]
     public ImgProvider imageProvider;
     public DataLogger dataLogger;
@@ -276,8 +279,11 @@ public class TrialManager : MonoBehaviour
         //update the score on the computerscreen
         if(accuracy == 1)
         {
+
+            //animation + update of Score (in coroutine)
             ScoreThisRound += pointUpdate;
-            ScoreThisRoundTextField.text = ScoreThisRound.ToString();
+            onCorrectAnswer.HandleCorrectAnswer(ScoreThisRound);
+
         }
 
         imageProvider.ConfirmCurrentImageCompleted();

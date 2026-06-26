@@ -63,6 +63,8 @@ public class CommunicationToken
         level = progress.currentLevel;
         playthroughs = progress.playthroughs;
 
+        Debug.Log("playthroughs: " + playthroughs);
+
     }
     
 }
