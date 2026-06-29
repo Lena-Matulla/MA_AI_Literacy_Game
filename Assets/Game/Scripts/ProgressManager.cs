@@ -15,7 +15,15 @@ public class ProgressManager : MonoBehaviour
 
     [Header("Reference")]
     [SerializeField] private UpdateOfficeVisuals officeVisuals;
-    
+
+    [Header("Reference to the Notebook")]
+    public GameObject notebook;
+
+
+    [Header("Reference to the BookObject for the text")]
+    public Book book;
+
+
 
     private void Awake()
     {
@@ -92,6 +100,11 @@ public class ProgressManager : MonoBehaviour
                 {
                     currentPoints -= neededPoints;
                     currentLevel++;
+                    //update book
+                    book.UnlockNextTextPage();
+                    //open book
+                    book.OpenAtNewestUnlockedText();
+                    notebook.SetActive(true);
                 }
                 else
                 {
