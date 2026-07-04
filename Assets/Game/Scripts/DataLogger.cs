@@ -38,7 +38,7 @@ public class DataLogger : MonoBehaviour
         if (_headerWritten) return;
         if(!File.Exists(FilePath) || new FileInfo(FilePath).Length == 0 )
         {
-            string header = "player_id,session_id,session_start_date,session_duration_ms,trial_index,image_name,ground_truth,user_choice,accuracy,reaction_time_ms, lastlocalx, lastlocaly, lastnormalx, lastnormaly,OverallToggleChecked, confidence, RealclickedInTrial, FakeClickedInTrial, whyText, currentCategory\n";
+            string header = "player_id,session_id,session_start_date,session_duration_ms,trial_index,image_name,ground_truth,user_choice,accuracy,reaction_time_ms, lastlocalx, lastlocaly, lastnormalx, lastnormaly,OverallToggleChecked, confidence, RealclickedInTrial, FakeClickedInTrial, whyText, currentCategory, mediaType\n";
             File.AppendAllText(FilePath, header);
         }
         _headerWritten = true;
@@ -58,7 +58,8 @@ public class DataLogger : MonoBehaviour
         int realclicked,
         int fakeclicked,
         string whyText,
-        string currentCategory) 
+        string currentCategory,
+        MediaType mediaType) 
     {
         WriteHeaderIfNeeded();
 
@@ -86,7 +87,8 @@ public class DataLogger : MonoBehaviour
                     $"{realclicked}," +
                     $"{fakeclicked}," +
                     $"{EscapeCsv(whyText)}," +
-                    $"{EscapeCsv(currentCategory)}\n";
+                    $"{EscapeCsv(currentCategory)},"+
+                    $"{mediaType}\n";
 
 
         File.AppendAllText(FilePath, line );

@@ -271,7 +271,8 @@ public class TrialManager : MonoBehaviour
             realclicked: _realClickedInTrial,
             fakeclicked: _fakeClickedInTrial,
             whyText: whytext,
-            currentCategory: category
+            currentCategory: category,
+            mediaType: imageProvider.currentMediaType
         );
 
         //exportManager.RegisterUsedImage(imageProvider.CurrentImgEntry);

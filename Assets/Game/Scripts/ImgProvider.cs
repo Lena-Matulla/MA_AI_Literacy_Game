@@ -5,6 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.Video;
+using Object = UnityEngine.Object;
 
 
 /*
@@ -16,19 +18,34 @@ public enum ImgCategory
     Text
 }
 */
+
+public enum MediaType
+{
+    Image,
+    Video
+}
 public class ImgEntry
 {
+    //for images, if no image then it is null
     public Texture2D texture;
+    //for videos, if no video then it is null
+    public string videoUrl;
     public string filePath;
     public string fileName;
     public bool isFake;
     public string category;
     public string id;
+    public MediaType mediaType;
 }
 
 
 public class ImgProvider : MonoBehaviour
 {
+    [SerializeField]
+    public VideoPlayer videoPlayer;
+    [SerializeField]
+    public RenderTexture videoRenderTexture;
+
     [Header("Reference to RawImage for display")]
     public RawImage targetImage;
 
@@ -45,9 +62,13 @@ public class ImgProvider : MonoBehaviour
 
     public string currentCategory {  get; private set; }
 
+    public MediaType currentMediaType { get; private set; }
+
     private string basePath;
 
     private bool isInitialized = false;
+
+
 
 
     [Header("Study Events")]
@@ -56,6 +77,9 @@ public class ImgProvider : MonoBehaviour
     public bool IsStudyFinished { get; private set; }
 
     public int playthroughs { get; private set; }
+
+
+ 
 
 
     [SerializeField]
@@ -226,6 +250,25 @@ public class ImgProvider : MonoBehaviour
                     Debug.LogWarning("Could not load image: " + file);
                     Destroy(tex);
                 }
+            }else if(extension == ".mp4")
+            {
+                string fileName = Path.GetFileName(file);
+
+                ImgEntry entry = new ImgEntry
+                {
+                    texture = null,
+                    //Converts normal file path to something VideoPlayer can use
+                    videoUrl = new Uri(file).AbsoluteUri,
+                    filePath = file,
+                    fileName = fileName,
+                    isFake = isFake,
+                    category = cat,
+                    mediaType = MediaType.Video,
+                    id = CreateImageId(cat, isFake, fileName)
+                };
+
+                allImages.Add(entry);
+
             }
         }
     }
@@ -337,12 +380,59 @@ public class ImgProvider : MonoBehaviour
         currentImgName = chosenEntry.fileName;
         currentCategory = chosenEntry.category;
 
-        targetImage.texture = chosenEntry.texture;
+        if (chosenEntry.mediaType == MediaType.Image)
+        {
+            StopVideo();
+            targetImage.texture = chosenEntry.texture;
+        }else if(chosenEntry.mediaType == MediaType.Video)
+        {
+            PlayVideo(chosenEntry.videoUrl);
+        }
 
-        Debug.Log("Loaded image: " + chosenEntry.fileName);
+        currentMediaType = chosenEntry.mediaType;
+
+
+            Debug.Log("Loaded media: " + chosenEntry.fileName);
 
         return true;
     }
+
+    private void PlayVideo(string videoURL)
+    {
+        videoPlayer.Stop();
+
+        videoPlayer.source = VideoSource.Url;
+        videoPlayer.url = videoURL;
+
+        videoPlayer.renderMode = VideoRenderMode.RenderTexture;
+        videoPlayer.targetTexture = videoRenderTexture;
+
+        targetImage.texture = videoRenderTexture;
+
+        videoPlayer.Play();
+
+        /*
+        targetImage.texture = videoRenderTexture;
+
+        videoPlayer.Stop();
+
+        videoPlayer.source = VideoSource.VideoClip;
+        videoPlayer.clip = video;
+        videoPlayer.renderMode = VideoRenderMode.RenderTexture;
+        videoPlayer.targetTexture = videoRenderTexture;
+        videoPlayer.isLooping = true;
+
+        videoPlayer.Play();*/
+    }
+
+    private void StopVideo()
+    {
+        if (videoPlayer != null && videoPlayer.isPlaying)
+        {
+            videoPlayer.Stop();
+        }
+    }
+
 
     //creates ID for images
     private string CreateImageId(string category, bool isFake, string fileName)

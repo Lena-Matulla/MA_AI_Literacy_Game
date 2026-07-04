@@ -165,10 +165,16 @@ public class ExportManager : MonoBehaviour
                     {
                         //byte[] pngBytes = img.texture.EncodeToPNG();
                         //File.WriteAllBytes(targetPath, pngBytes);
-                        Texture2D readableCopy = MakeTextureReadable(img.texture);
-                        byte[] pngBytes = readableCopy.EncodeToPNG();
-                        File.WriteAllBytes(targetPath, pngBytes);
-                        Destroy(readableCopy);
+                        if(img.texture is Texture2D image)
+                        {
+                            Texture2D readableCopy = MakeTextureReadable(image);
+                            byte[] pngBytes = readableCopy.EncodeToPNG();
+                            File.WriteAllBytes(targetPath, pngBytes);
+                            Destroy(readableCopy);
+                        }
+
+                        // TODO: VIDEO NOT ADDED HERE; DOES ONLY WORK FOR IMG
+                        
                     }
                 }
             }

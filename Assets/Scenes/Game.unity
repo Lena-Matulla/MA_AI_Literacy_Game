@@ -58942,7 +58942,7 @@ RectTransform:
   m_Father: {fileID: 4569020104367610065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -59344,7 +59344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2451692626606083317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59920,7 +59920,7 @@ RectTransform:
   m_Father: {fileID: 6117504787307662072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -61975,7 +61975,7 @@ RectTransform:
   m_Father: {fileID: 4601108116483247286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -62984,6 +62984,7 @@ GameObject:
   - component: {fileID: 1605810096772279708}
   - component: {fileID: 2906242692639771634}
   - component: {fileID: 6339326442977233568}
+  - component: {fileID: 7375921905648002804}
   m_Layer: 5
   m_Name: ImagePanel
   m_TagString: Untagged
@@ -62991,6 +62992,42 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!328 &7375921905648002804
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7375921905648002803}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 167e4b1778f657a42affdd65b0823b9d, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 87cc7e057ecebe647abdcce9b9c8d252, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!114 &7382044225715744801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63353,6 +63390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: badd7423f36ccde49bb00c38bfc9be97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ImgProvider
+  videoPlayer: {fileID: 7375921905648002804}
+  videoRenderTexture: {fileID: 8400000, guid: 87cc7e057ecebe647abdcce9b9c8d252, type: 2}
   targetImage: {fileID: 9179672155954393602}
   onStudyFinished:
     m_PersistentCalls:
