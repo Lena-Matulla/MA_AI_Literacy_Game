@@ -84,12 +84,15 @@ public class Book : MonoBehaviour {
 
     //Make the text lockable, so that it can unlock with higher levels:
     [Header("Text Unlocking")]
-    public int unlockedTextPageCount = 1;
+    public int unlockedTextPageCount = 0;
 
     void Start()
     {
         if (!canvas) canvas=GetComponentInParent<Canvas>();
         if (!canvas) Debug.LogError("Book should be a child to canvas");
+
+        //reset unlockedTextPageCount which is same as level: 
+        unlockedTextPageCount = ProgressManager.Instance.currentLevel;
 
         Left.gameObject.SetActive(false);
         Right.gameObject.SetActive(false);

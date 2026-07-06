@@ -11439,7 +11439,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -11452,25 +11452,25 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
-  m_lineSpacing: -16
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -11496,7 +11496,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 15, z: 0, w: 0}
+  m_margin: {x: -25, y: -35, z: -45, w: -35}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11814,10 +11814,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hallo Das ist Seite 0 fkdls\xF6fkldsa\xF6fk l\xF6sjkf l\xF6jskdfl\xF6jsd
-    kl\xF6fdsjf klds\xF6ajf lds\xF6j fklds\xF6jf kdsl\xF6jf klds\xF6jfklds\xF6jfkdsl\xF6j
-    kdsl\xF6f kdsl\xF6f jlds\xF6jf kdl\xF6sjf klds\xF6jf ioep jrfkld\xF6sajnfk dlsjfeifj
-    kdlsaj\xF6 fklds\xF6j fieo\xF6jf kl\xF6dskf lds"
+  m_text: "Tag 1 \u2013 Erste Notizen\nErster Tag in der Firma. Ich dachte, es geht
+    direkt um komplizierte Analyse-Tools, aber erstmal hei\xDFt es: genau hinschauen.\n\nBilder:\nH\xE4nde,
+    Finger, Arme und Beine pr\xFCfen. Zu viele Finger, verdrehte K\xF6rperteile oder
+    verschwindende Extremit\xE4ten k\xF6nnen Hinweise auf KI sein.\n\nText:\nRechtschreibfehler
+    sind nicht automatisch verd\xE4chtig. Kleine Fehler k\xF6nnen sogar eher auf
+    einen Menschen hindeuten. KI-Texte wirken oft sehr glatt und fehlerfrei.\n\nVideo:\nImmer
+    fragen: Ergibt das Sinn? Ein Kaninchen auf einem Trampolin ist nicht unm\xF6glich,
+    aber schon auff\xE4llig unwahrscheinlich.\n\nMerke:\nNicht alles Komische ist
+    KI. Aber alles Komische verdient einen zweiten Blick."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11844,20 +11849,20 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
-  m_lineSpacing: -16
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -11883,7 +11888,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 15, z: 0, w: 0}
+  m_margin: {x: -25, y: -35, z: -45, w: -35}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -15429,6 +15434,143 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 312568110683099995, guid: 3c5526aa5b730104784fd54424ea2e1e, type: 3}
   m_PrefabInstance: {fileID: 161137786}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &418799404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418799405}
+  - component: {fileID: 418799407}
+  - component: {fileID: 418799406}
+  m_Layer: 5
+  m_Name: Title (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &418799405
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418799404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8707851270352042097}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: -30, y: -203.1526}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &418799406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418799404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 1 = Not confident                 10 = Very confident
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 14
+  m_fontSizeBase: 14
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &418799407
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418799404}
+  m_CullTransparentMesh: 1
 --- !u!1 &419754560
 GameObject:
   m_ObjectHideFlags: 0
@@ -19203,7 +19345,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -19216,25 +19358,25 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
-  m_lineSpacing: -16
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -19260,7 +19402,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 15, z: 0, w: 0}
+  m_margin: {x: -25, y: -35, z: -45, w: -35}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -22341,14 +22483,14 @@ MonoBehaviour:
   BookPanel: {fileID: 678860386}
   background: {fileID: 2746070240498474880, guid: 2bfc192b1ae2f674ab682b50cb9638db, type: 3}
   bookPages:
-  - {fileID: 259141350731100900, guid: 7b405577691d0ee4abe7ab0ffd08ce39, type: 3}
-  - {fileID: -2967216628538895315, guid: 58753359c01509b4f9a6ccecd9957739, type: 3}
-  - {fileID: 259141350731100900, guid: 7b405577691d0ee4abe7ab0ffd08ce39, type: 3}
-  - {fileID: -2967216628538895315, guid: 58753359c01509b4f9a6ccecd9957739, type: 3}
-  - {fileID: 259141350731100900, guid: 7b405577691d0ee4abe7ab0ffd08ce39, type: 3}
-  - {fileID: -2967216628538895315, guid: 58753359c01509b4f9a6ccecd9957739, type: 3}
-  - {fileID: 259141350731100900, guid: 7b405577691d0ee4abe7ab0ffd08ce39, type: 3}
-  - {fileID: -2967216628538895315, guid: 58753359c01509b4f9a6ccecd9957739, type: 3}
+  - {fileID: -3769811031853554458, guid: 2a4814a5d015d1c4eb489e4f3876fa26, type: 3}
+  - {fileID: 2191943901429787008, guid: 9ef7cc6e64cf05e48b071df9ed36ac90, type: 3}
+  - {fileID: -3769811031853554458, guid: 2a4814a5d015d1c4eb489e4f3876fa26, type: 3}
+  - {fileID: 2191943901429787008, guid: 9ef7cc6e64cf05e48b071df9ed36ac90, type: 3}
+  - {fileID: -3769811031853554458, guid: 2a4814a5d015d1c4eb489e4f3876fa26, type: 3}
+  - {fileID: 2191943901429787008, guid: 9ef7cc6e64cf05e48b071df9ed36ac90, type: 3}
+  - {fileID: -3769811031853554458, guid: 2a4814a5d015d1c4eb489e4f3876fa26, type: 3}
+  - {fileID: 2191943901429787008, guid: 9ef7cc6e64cf05e48b071df9ed36ac90, type: 3}
   interactable: 1
   enableShadowEffect: 1
   currentPage: 0
@@ -22364,28 +22506,57 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   pageTexts:
-  - "Hallo Das ist Seite 0 fkdls\xF6fkldsa\xF6fk l\xF6sjkf l\xF6jskdfl\xF6jsd kl\xF6fdsjf
-    klds\xF6ajf lds\xF6j fklds\xF6jf kdsl\xF6jf klds\xF6jfklds\xF6jfkdsl\xF6j kdsl\xF6f
-    kdsl\xF6f jlds\xF6jf kdl\xF6sjf klds\xF6jf ioep jrfkld\xF6sajnfk dlsjfeifj kdlsaj\xF6
-    fklds\xF6j fieo\xF6jf kl\xF6dskf lds"
-  - "Hallo Das ist Seite 1 s\xF6jfkdsl\xF6j kdsl\xF6f kdsl\xF6f jlds\xF6jf kdl\xF6sjf
-    klds\xF6jf ioep jrfkld\xF6sajnfk dlsjfeifj kdlsaj\xF6 fklds\xF6j fieo\xF6jf kl\xF6dskf
-    lds"
-  - "Hallo Das ist Seite 2\ns\xF6jfkdsl\xF6j kdsl\xF6f kdsl\xF6f jlds\xF6jf kdl\xF6sjf
-    klds\xF6jf ioep jrfkld\xF6sajnfk dlsjfeifj kdlsaj\xF6 fklds\xF6j fieo\xF6jf kl\xF6dskf
-    lds"
-  - "Hallo Das ist Seite 3\n\ns\xF6jfkdsl\xF6j kdsl\xF6f kdsl\xF6f jlds\xF6jf kdl\xF6sjf
-    klds\xF6jf ioep jrfkld\xF6sajnfk dlsjfeifj kdlsaj\xF6 fklds\xF6j fieo\xF6jf kl\xF6dskf
-    lds"
-  - "Hallo Das ist Seite 4 s\xF6jfkdsl\xF6j kdsl\xF6f kdsl\xF6f jlds\xF6jf kdl\xF6sjf
-    klds\xF6jf ioep jrfkld\xF6sajnfk dlsjfeifj kdlsaj\xF6 fklds\xF6j fieo\xF6jf kl\xF6dskf
-    lds"
-  - Hallo Das ist Seite 5
+  - "Tag 1 \u2013 Erste Notizen\nErster Tag in der Firma. Ich dachte, es geht direkt
+    um komplizierte Analyse-Tools, aber erstmal hei\xDFt es: genau hinschauen.\n\nBilder:\nH\xE4nde,
+    Finger, Arme und Beine pr\xFCfen. Zu viele Finger, verdrehte K\xF6rperteile oder
+    verschwindende Extremit\xE4ten k\xF6nnen Hinweise auf KI sein.\n\nText:\nRechtschreibfehler
+    sind nicht automatisch verd\xE4chtig. Kleine Fehler k\xF6nnen sogar eher auf
+    einen Menschen hindeuten. KI-Texte wirken oft sehr glatt und fehlerfrei.\n\nVideo:\nImmer
+    fragen: Ergibt das Sinn? Ein Kaninchen auf einem Trampolin ist nicht unm\xF6glich,
+    aber schon auff\xE4llig unwahrscheinlich.\n\nMerke:\nNicht alles Komische ist
+    KI. Aber alles Komische verdient einen zweiten Blick."
+  - "Tag 2 \u2013 \xDCberg\xE4nge\r\nHeute habe ich gelernt, nicht nur auf einzelne
+    Dinge zu achten, sondern auf das, was dazwischen passiert.\r\n\r\nBilder:\r\n\xDCberg\xE4nge
+    pr\xFCfen. Wenn Personen, Tiere oder Gegenst\xE4nde nah beieinander sind, k\xF6nnen
+    sie manchmal unnat\xFCrlich ineinander verschwimmen.\r\n\r\nText:\r\nSehr kurze,
+    einfache S\xE4tze k\xF6nnen auff\xE4llig sein, besonders wenn der ganze Text
+    gleichf\xF6rmig wirkt.\r\n\r\nVideo:\r\nBewegungen beobachten. Ver\xE4ndern sich
+    K\xF6rper, Gesichter oder Gegenst\xE4nde w\xE4hrend der Bewegung komisch, kann
+    das ein Hinweis sein.\r\n\r\nMerke:\r\nNicht nur das Motiv pr\xFCfen, sondern
+    auch R\xE4nder, \xDCberg\xE4nge und Bewegungen.\r\n"
+  - "Tag 3 \u2013 Passt das zusammen?\nHeute ging es weniger um einzelne Fehler und
+    mehr darum, ob alles logisch zusammenpasst.\n\nBilder:\nSchatten und Belichtung
+    pr\xFCfen. Kommt das Licht aus einer klaren Richtung? Passen Schatten zu den
+    Personen und Gegenst\xE4nden?\nWirkt das Licht nat\xFCrlich?\n\nText:\nAuf unlogische
+    Spr\xFCnge achten. Wenn eine Geschichte pl\xF6tzlich die Richtung wechselt oder
+    Dinge passieren, die nicht vorbereitet wurden, kann das auff\xE4llig sein.\n\nVideo:\nAuf
+    Kontinuit\xE4t achten. Bleiben Kleidung, Gegenst\xE4nde, Gesichter oder Hintergr\xFCnde
+    gleich, oder ver\xE4ndern sie sich pl\xF6tzlich w\xE4hrend des Videos?\n\nMerke:\nEin
+    einzelner Fehler ist auff\xE4llig. Mehrere kleine Widerspr\xFCche sind verd\xE4chtig."
+  - "Tag 4 \u2013 Zu perfekt?\nHeute habe ich gelernt, dass KI nicht immer durch
+    Fehler auff\xE4llt. Manchmal wirkt etwas auch verd\xE4chtig, weil es zu sauber
+    oder zu \xFCbertrieben aussieht.\n\nBilder:\nAuf sehr starke Farben achten. Wenn
+    ein Bild extrem bunt, gl\xE4nzend oder \xFCbertrieben perfekt wirkt, kann das
+    ein Hinweis sein.\n\nText:\nViele perfekt gesetzte Satzzeichen k\xF6nnen auff\xE4llig
+    sein. Besonders Gedankenstriche, Kommas und sehr saubere Struktur wirken manchmal
+    eher k\xFCnstlich.\n\nVideo:\nAuf zu glatte Bewegungen achten. Wenn Kamerafahrten,
+    Gesichtsausdr\xFCcke oder Bewegungen extrem sauber, weich und fast werbeartig
+    wirken, kann das auff\xE4llig sein.\n\nMerke:\nNicht nur Fehler k\xF6nnen verd\xE4chtig
+    sein."
+  - "Tag 5 \u2013 Kleine Unstimmigkeiten\nHeute habe ich gelernt, dass manche Hinweise
+    erst auffallen, wenn man auf die kleinen Details achtet.\n\nBilder:\nSchrift,
+    Logos und kleine Details pr\xFCfen. Texte auf Schildern, Kleidung oder Verpackungen
+    sehen bei KI manchmal verzerrt aus oder ergeben keinen Sinn.\n\nText:\nAuf Wiederholungen
+    achten. Wenn bestimmte W\xF6rter, Satzanf\xE4nge oder Aussagen immer wieder \xE4hnlich
+    vorkommen, kann das k\xFCnstlich wirken.\n\nVideo:\nAuf Ton und Lippenbewegung
+    achten. Wenn Sprache nicht richtig zum Mund passt oder Reaktionen leicht verz\xF6gert
+    wirken, sollte man genauer hinschauen.\n\nMerke:\nManchmal verstecken die Fehler
+    sich in den Details."
   LeftText: {fileID: 191101486}
   LeftNextText: {fileID: 1324233113}
   RightText: {fileID: 592040151}
   RightNextText: {fileID: 208888663}
-  unlockedTextPageCount: 1
+  unlockedTextPageCount: 0
 --- !u!114 &697228176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22436,7 +22607,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 259141350731100900, guid: 7b405577691d0ee4abe7ab0ffd08ce39, type: 3}
+  m_Sprite: {fileID: -3769811031853554458, guid: 2a4814a5d015d1c4eb489e4f3876fa26, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -29214,7 +29385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6684322029799508046, guid: 990adbe6e5aae4b4cbf9ead2bc088022, type: 3}
+  m_Sprite: {fileID: 5929647102084301749, guid: 85ede7fa9e94e0441b6f0abed03b8992, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -32474,8 +32645,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -407, y: 345}
-  m_SizeDelta: {x: 256.0433, y: 81.1352}
+  m_AnchoredPosition: {x: -286.8542, y: -1.0266}
+  m_SizeDelta: {x: 509.0042, y: 818.7371}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1290819041
 MonoBehaviour:
@@ -32497,7 +32668,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Story:'
+  m_text: "Notizbuch \u2013 Medienpr\xFCfung\n\nHeute habe ich bei der FIrma angefangen.\nDie
+    Firma pr\xFCft Bilder, Texte und Videos darauf, ob sie echt sind oder von KI
+    erstellt wurden. Noch ist alles \xFCberschaubar, aber das Ziel ist gro\xDF: Menschen
+    sollen wissen, welchen Medien sie vertrauen k\xF6nnen.\n\nJede richtige Entscheidung
+    erh\xF6ht den Trust Value der Firma. Und je h\xF6her dieser Wert steigt, desto
+    mehr w\xE4chst die Firma. Mehr Vertrauen bedeutet mehr Auftr\xE4ge, neue Mitarbeiter,
+    bessere Technik und gr\xF6\xDFere Verantwortung.\n\nDieses Notizbuch soll mir
+    helfen, besser darin zu werden, Medien zu beurteilen. Jeden Tag schreibe ich
+    auf, was ich dazulerne: Hinweise, Muster und Fehler, auf die ich achten kann.\n\nAm
+    Anfang erkenne ich wahrscheinlich nur das Offensichtliche.\nAber wenn ich genauer
+    arbeite, w\xE4chst nicht nur mein Wissen, sondern die ganze Firma."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -32524,8 +32705,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -32537,7 +32718,7 @@ MonoBehaviour:
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -32563,7 +32744,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 3.4006348, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -32960,20 +33141,20 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
-  m_lineSpacing: -16
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -32999,7 +33180,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 15, z: 0, w: 0}
+  m_margin: {x: -25, y: -35, z: -45, w: -35}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -35064,6 +35245,143 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391297009}
+  m_CullTransparentMesh: 1
+--- !u!1 &1395885503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395885504}
+  - component: {fileID: 1395885506}
+  - component: {fileID: 1395885505}
+  m_Layer: 5
+  m_Name: Text (TMP) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1395885504
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395885503}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7430083748839372844}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 138}
+  m_SizeDelta: {x: 300, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1395885505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395885503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Click the suspicious area or select:'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 19.4
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1395885506
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395885503}
   m_CullTransparentMesh: 1
 --- !u!1 &1397357617
 GameObject:
@@ -57585,7 +57903,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Click on Image or mark: '
+  m_text: Where is the manipulation?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -57612,7 +57930,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.85
+  m_fontSize: 24.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -57832,7 +58150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -84}
+  m_AnchoredPosition: {x: -1, y: -93}
   m_SizeDelta: {x: -122, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &418743969188382785
@@ -58039,8 +58357,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9, y: -5}
-  m_SizeDelta: {x: -28, y: -3}
+  m_AnchoredPosition: {x: 14.6153, y: -5}
+  m_SizeDelta: {x: 16.9429, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &785843390143921965
 MonoBehaviour:
@@ -58678,7 +58996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 45}
+  m_AnchoredPosition: {x: 0, y: 54}
   m_SizeDelta: {x: -30, y: -203.1526}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1528974323708833507
@@ -58718,7 +59036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 117.5, y: -21}
+  m_AnchoredPosition: {x: 117.5, y: -3.7000122}
   m_SizeDelta: {x: -265, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1576888360809618260
@@ -58942,7 +59260,7 @@ RectTransform:
   m_Father: {fileID: 4569020104367610065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -59183,7 +59501,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!222 &2247329992452228600
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -59247,7 +59565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -5}
+  m_AnchoredPosition: {x: -12.1, y: -5}
   m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2340985847750216957
@@ -59303,7 +59621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -88}
+  m_AnchoredPosition: {x: -1, y: -100}
   m_SizeDelta: {x: -122, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2431216634894095694
@@ -59344,7 +59662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2451692626606083317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59647,7 +59965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 137}
+  m_AnchoredPosition: {x: 0, y: 102}
   m_SizeDelta: {x: -174, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2855151604617346745
@@ -59920,7 +60238,7 @@ RectTransform:
   m_Father: {fileID: 6117504787307662072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -60083,7 +60401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: How Confident are you?
+  m_text: How confident are you in your choice?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -60110,7 +60428,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.45
+  m_fontSize: 20.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -60667,7 +60985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -27.49997, y: -21}
+  m_AnchoredPosition: {x: -27.49997, y: -3.7}
   m_SizeDelta: {x: -95, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &4285697115250522296
@@ -61975,7 +62293,7 @@ RectTransform:
   m_Father: {fileID: 4601108116483247286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -62789,7 +63107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Explain here further if needed
+  m_text: 'Optional: explain your choice'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -62904,18 +63222,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 110
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Overall Image
+  m_Text: Whole image / no specific area
 --- !u!222 &7289921493909846499
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -63075,6 +63393,7 @@ RectTransform:
   m_Children:
   - {fileID: 2787557245716297268}
   - {fileID: 6646288462683470381}
+  - {fileID: 1395885504}
   - {fileID: 2363167590397861341}
   - {fileID: 8323991958311901682}
   m_Father: {fileID: 1694916390769460603}
@@ -63670,8 +63989,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 16}
-  m_SizeDelta: {x: -20, y: 150}
+  m_AnchoredPosition: {x: 1.25, y: -1.5799}
+  m_SizeDelta: {x: -22.5, y: 135.3501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8341259742642141121
 CanvasRenderer:
@@ -64220,6 +64539,7 @@ RectTransform:
   - {fileID: 1567303646142180606}
   - {fileID: 395291265065525652}
   - {fileID: 1456907666817794756}
+  - {fileID: 418799405}
   m_Father: {fileID: 1694916390769460603}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
