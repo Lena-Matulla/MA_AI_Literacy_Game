@@ -173,7 +173,8 @@ public class TrialManager : MonoBehaviour
         {
             _ChoseFake = true;
             _state = TrialState.Marking;
-            interactionLayer.gameObject.SetActive(true);
+            //interactionLayer.gameObject.SetActive(true);
+            toggle.isOn = true;
             Markerpart.gameObject.SetActive(true);
             whyInputField.interactable = true;
             
@@ -187,9 +188,18 @@ public class TrialManager : MonoBehaviour
 
     private void OnToggleChanged(Toggle toggle)
     {
-        if (toggle.isOn)
+        //The image should only be clickable while marking a Fake answer
+        if (_state != TrialState.Marking || _selection != Selection.Fake)
+        {
+            _toggleChecked = false;
+            interactionLayer.gameObject.SetActive(false);
+            return;
+        }
+
+        if (toggle.isOn || imageProvider.currentMediaType == MediaType.Video)
         {
             _toggleChecked = true;
+            toggle.SetIsOnWithoutNotify(true);
             interactionLayer.gameObject.SetActive(false);
             _Local = new Vector2(-1000, -1000);
             _Norm = new Vector2(-1, -1);
@@ -203,8 +213,11 @@ public class TrialManager : MonoBehaviour
 
     private void OnConfirmMarkedClicked()
     {
+        if (_state != TrialState.Marking || _selection != Selection.Fake)
+            return;
+
         // marked = true;
-        if(interactionLayer.interacted || toggle.isOn)
+        if (interactionLayer.interacted || toggle.isOn)
         {
             if (!toggle.isOn)
             {
@@ -329,16 +342,19 @@ public class TrialManager : MonoBehaviour
         marked = false;
         latestlocal = new Vector2(-1000, -1000);
         latestnormal = new Vector2(-1, -1);
-        interactionLayer.gameObject.SetActive(false);
+        
         _ChoseFake = false;
         _Local = new Vector2(-1000, -1000);
         _Norm = new Vector2(-1, -1);
-        _toggleChecked = false;
+        
         _confidence = 0f;
         _realClickedInTrial = 0;
         _fakeClickedInTrial = 0;
         Markerpart.gameObject.SetActive(false);
-        toggle.isOn = false;
+        //Reset toggle without triggering OnToggleChanged()
+        toggle.SetIsOnWithoutNotify(false);
+        _toggleChecked = false;
+        interactionLayer.gameObject.SetActive(false);
     }
 
 
@@ -346,6 +362,10 @@ public class TrialManager : MonoBehaviour
 
     public void updatemarked(Vector2 ll, Vector2 ln)
     {
+        //only work when fake is clicked and we are in marking state
+        if (_state != TrialState.Marking || _selection != Selection.Fake)
+            return;
+
         marked = true;
         latestlocal = ll;
         latestnormal = ln;
