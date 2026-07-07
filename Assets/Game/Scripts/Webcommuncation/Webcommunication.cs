@@ -11,24 +11,37 @@ public class Webcommunication : MonoBehaviour
 
     private string server = "https://www.dh-profil.uni-tuebingen.de/kicher/kichercollector.php";
 
-    public void SendData() {
-        Debug.Log("KK: Started sending");
-        CommunicationToken token = new CommunicationToken();
-        token.LoadData();
-        
-        string json = JsonUtility.ToJson(token);
+    private bool isSending = false;
+    private bool isQuitting = false;
 
-        // Todo: Prüfen, ob Internetverbindung besteht
-        StartCoroutine(SendDataRoutine(json));
+    public void SendData() {
+
+        if (!isSending)
+        {
+            Debug.Log("KK: Started sending");
+            CommunicationToken token = new CommunicationToken();
+            token.LoadData();
+
+            string json = JsonUtility.ToJson(token);
+
+            // Todo: Prüfen, ob Internetverbindung besteht
+            StartCoroutine(SendDataRoutine(json));
+        }
     }
 
     IEnumerator SendDataRoutine(string json)
     {
+        if (isSending)
+        {
+            yield break;
+        }
+        isSending = true;
+
         WWWForm form = new WWWForm();
         form.AddField("jsondata", json);
 
         UnityWebRequest www = UnityWebRequest.Post(server, form);
-
+        www.timeout = 10;
 
         yield return www.SendWebRequest();
 
@@ -47,15 +60,51 @@ public class Webcommunication : MonoBehaviour
             // Or retrieve results as binary data
             byte[] results = www.downloadHandler.data;
         }
+
+        www.Dispose();
+        isSending = false;
     }
 
     private void Update()
     {
-        if (sendData)
+        if (sendData && !isSending && !isQuitting)
         {
             SendData();
             sendData = false;
         }
+    }
+
+    public void CloseGameButton()
+    {
+        if (!isQuitting)
+        {
+            StartCoroutine(SaveThenQuitRoutine());
+        }
+
+    }
+
+    private IEnumerator SaveThenQuitRoutine()
+    {
+        isQuitting = true;
+
+        Debug.Log("Saving before quit...");
+
+        //Falls gerade ein normaler Timer-Upload läuft: warten
+        while (isSending)
+        {
+            yield return null;
+        }
+
+        CommunicationToken token = new CommunicationToken();
+        token.LoadData();
+
+        string json = JsonUtility.ToJson(token);
+
+        yield return SendDataRoutine(json);
+
+        Debug.Log("Save finished. Quitting game.");
+
+        Application.Quit();
     }
 
 }
