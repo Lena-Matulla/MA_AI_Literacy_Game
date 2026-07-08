@@ -501,6 +501,8 @@ public class ImgProvider : MonoBehaviour
     {
         GameProgressData data = SaveManager.Load();
 
+        playthroughs = data.playthroughs;
+
         if (data.studyOrderImageIds == null || data.studyOrderImageIds.Count == 0)
             return false;
 

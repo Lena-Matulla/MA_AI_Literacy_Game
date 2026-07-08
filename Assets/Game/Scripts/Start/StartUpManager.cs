@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 
+
 public class StartUpManager : MonoBehaviour
 {
     [SerializeField] private TMP_InputField playerInput;
@@ -11,6 +12,11 @@ public class StartUpManager : MonoBehaviour
     [SerializeField] private string gameplaySceneName = "GameScene";
 
     [SerializeField] private string requiredPassword = "test123";
+
+    //Connection to the Webcommunicator for the Login Check
+    [SerializeField] private Webcommunication webcommunication;
+
+
 
     private void Start()
     {
@@ -69,7 +75,7 @@ public class StartUpManager : MonoBehaviour
         }
         */
 
-
+        /*
         GameConfigManager.SetPlayerID(enteredId);
         GameConfigManager.SetPassword(enteredPassword);
 
@@ -80,8 +86,53 @@ public class StartUpManager : MonoBehaviour
                   $"Server: {GameConfigManager.Config.serverURL}");
 
         SceneManager.LoadScene(gameplaySceneName);
+        */
 
+        webcommunication.CheckLogin(enteredId, enteredPassword, HandleLoginResponse);
 
+    }
+
+    //gets called once the webcommunicator finished his work, (action)
+    private void HandleLoginResponse(string response)
+    {
+        string enteredId = playerInput.text.Trim();
+        string enteredPassword = passwordInput.text.Trim();
+
+        if (response == "LOGIN_OK" || response == "NEW_PLAYER")
+        {
+            GameConfigManager.SetPlayerID(enteredId);
+            GameConfigManager.SetPassword(enteredPassword);
+
+            SessionIDManager.StartNewSession();
+
+            Debug.Log($"Player: {GameConfigManager.Config.playerID}, " +
+                      $"Experiment: {GameConfigManager.Config.experimentID}, " +
+                      $"Server: {GameConfigManager.Config.serverURL}");
+
+            SceneManager.LoadScene(gameplaySceneName);
+        }
+        else if (response == "WRONG_PASSWORD")
+        {
+            ShowError("Wrong password.");
+            Debug.LogWarning("Wrong password entered.");
+        }
+        else if (response == "CONNECTION_ERROR")
+        {
+            ShowError("Could not connect to server.");
+        }
+        else
+        {
+            ShowError("Login failed. Please contact admin.");
+            Debug.LogWarning("Unknown login response: " + response);
+        }
+    }
+
+    private void ShowError(string message)
+    {
+        if (errorText != null)
+        {
+            errorText.text = message;
+        }
     }
 
 
