@@ -23,7 +23,8 @@ public class ProgressManager : MonoBehaviour
     [Header("Reference to the BookObject for the text")]
     public Book book;
 
-    private AudioSource audioSource;
+    [Header("Reference to the LevelUp Popup")]
+    public PopUpManager LevelUpPopUpManager;
 
 
 
@@ -39,7 +40,7 @@ public class ProgressManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         LoadProgress();
-        audioSource = GetComponent<AudioSource>();
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -106,11 +107,14 @@ public class ProgressManager : MonoBehaviour
                     //update book
                     book.UnlockNextTextPage();
 
-                    //play levelup sound
-                    audioSource.Play();
+                    
                     //open book
                     book.OpenAtNewestUnlockedText();
                     notebook.SetActive(true);
+
+                    //play LevelUp PopUp
+                    LevelUpPopUpManager.AnimationCorrectAnswer();
+
                 }
                 else
                 {
