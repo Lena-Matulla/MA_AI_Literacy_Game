@@ -46,6 +46,10 @@ public class ImgProvider : MonoBehaviour
     [SerializeField]
     public RenderTexture videoRenderTexture;
 
+    //Reference to the Audio to mute the music while video is playing
+    [SerializeField]
+    public AudioSource AudioSource;
+
     [Header("Reference to RawImage for display")]
     public RawImage targetImage;
 
@@ -382,10 +386,19 @@ public class ImgProvider : MonoBehaviour
 
         if (chosenEntry.mediaType == MediaType.Image)
         {
+
+            //makes sound loud again if it is an image
+            AudioSource.mute = false;
+
+
             StopVideo();
             targetImage.texture = chosenEntry.texture;
         }else if(chosenEntry.mediaType == MediaType.Video)
         {
+            //makes background sound to mute for the video
+            AudioSource.mute = true;
+
+
             PlayVideo(chosenEntry.videoUrl);
         }
 

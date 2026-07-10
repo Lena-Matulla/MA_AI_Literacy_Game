@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-6168208193109085396
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cheery Monday_{-6168208193109085396}
+  m_AudioClip: {fileID: 8300000, guid: 7686cc108c6ca0647962318910b18e04, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-5016298762111276656
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Glitter Blast_{-5016298762111276656}
+  m_AudioClip: {fileID: 8300000, guid: a6612cb9687ea94459b0cdc5a8738dd5, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1908080629474673906
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sunshine A_{-1908080629474673906}
+  m_AudioClip: {fileID: 8300000, guid: 222e4d9f331ca624992fa3689492109c, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1431775469200664299
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Guts and Bourbon_{-1431775469200664299}
+  m_AudioClip: {fileID: 8300000, guid: 65ab389082525bb4fb2c1fd075d67e0e, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1280718520899266249
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Somewhere Sunny_{-1280718520899266249}
+  m_AudioClip: {fileID: 8300000, guid: cc94c3936eb5840488c475fd72f4f74c, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1139157265953513200
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bummin on Tremelo_{-1139157265953513200}
+  m_AudioClip: {fileID: 8300000, guid: 58f719117d537144bb5661fcd094cdf5, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &4608451026585408308
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fireflies and Stardust_{4608451026585408308}
+  m_AudioClip: {fileID: 8300000, guid: eeeb644cfa9a94d45befcdcac8602940, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BackgroundMusicPlaylist
+  m_Volume: -13
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -1139157265953513200}
+  - {fileID: -6168208193109085396}
+  - {fileID: 4608451026585408308}
+  - {fileID: -5016298762111276656}
+  - {fileID: -1431775469200664299}
+  - {fileID: -1280718520899266249}
+  - {fileID: -1908080629474673906}
+  m_AvoidRepeatingLast: 2
+  m_PlaybackMode: 1
+  m_TriggerMode: 1
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
