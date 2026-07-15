@@ -104,13 +104,17 @@ public class ProgressManager : MonoBehaviour
                 {
                     currentPoints -= neededPoints;
                     currentLevel++;
+
+
+                    notebook.SetActive(true);
+
                     //update book
                     book.UnlockNextTextPage();
 
                     
                     //open book
                     book.OpenAtNewestUnlockedText();
-                    notebook.SetActive(true);
+                    
 
                     //play LevelUp PopUp
                     LevelUpPopUpManager.AnimationCorrectAnswer();
