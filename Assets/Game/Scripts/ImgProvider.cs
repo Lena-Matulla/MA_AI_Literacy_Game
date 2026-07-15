@@ -387,17 +387,10 @@ public class ImgProvider : MonoBehaviour
         if (chosenEntry.mediaType == MediaType.Image)
         {
 
-            //makes sound loud again if it is an image
-            AudioSource.mute = false;
-
-
             StopVideo();
             targetImage.texture = chosenEntry.texture;
         }else if(chosenEntry.mediaType == MediaType.Video)
         {
-            //makes background sound to mute for the video
-            AudioSource.mute = true;
-
 
             PlayVideo(chosenEntry.videoUrl);
         }
@@ -422,7 +415,11 @@ public class ImgProvider : MonoBehaviour
 
         targetImage.texture = videoRenderTexture;
 
+        //makes background sound to mute for the video
+        AudioSource.mute = true;
+
         videoPlayer.Play();
+        
 
         /*
         targetImage.texture = videoRenderTexture;
@@ -440,6 +437,13 @@ public class ImgProvider : MonoBehaviour
 
     private void StopVideo()
     {
+        
+        if (AudioSource != null)
+        {
+            // makes background sound go unmute again
+            AudioSource.mute = false;
+        }
+
         if (videoPlayer != null && videoPlayer.isPlaying)
         {
             videoPlayer.Stop();
@@ -557,6 +561,32 @@ public class ImgProvider : MonoBehaviour
         return true;
     }
 
+
+    //To handle the case that the ImgGame gets closed and reopend on an video
+    private void OnDisable()
+    {
+        if (AudioSource != null)
+        {
+            // makes background sound go unmute again
+            AudioSource.mute = false;
+        }
+
+
+        if (videoPlayer != null)
+        {
+
+            
+            videoPlayer.Stop();
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (CurrentImgEntry != null && CurrentImgEntry.mediaType == MediaType.Video)
+        {
+            PlayVideo(CurrentImgEntry.videoUrl);
+        }
+    }
 
 
 
