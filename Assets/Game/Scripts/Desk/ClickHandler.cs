@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class ClickHandler : MonoBehaviour
@@ -12,6 +13,7 @@ public class ClickHandler : MonoBehaviour
     public Statistic statisic;
     public GameObject TabletPanel;
     public GameObject Notebook;
+    public AudioSource AudioSourceClick;
 
     void Update()
     {
@@ -64,6 +66,9 @@ public class ClickHandler : MonoBehaviour
                 {
                     Debug.Log("Notebook item clicked!");
                     Notebook.SetActive(true);
+                }else if (hit.collider.CompareTag("Coffee"))
+                {
+                    AudioSourceClick.Play();
                 }
             }
         }

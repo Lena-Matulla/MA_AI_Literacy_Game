@@ -405,6 +405,12 @@ public class ImgProvider : MonoBehaviour
 
     private void PlayVideo(string videoURL)
     {
+        if (!isActiveAndEnabled)
+        {
+            StopVideo();
+            return;
+        }
+
         videoPlayer.Stop();
 
         videoPlayer.source = VideoSource.Url;
@@ -416,7 +422,10 @@ public class ImgProvider : MonoBehaviour
         targetImage.texture = videoRenderTexture;
 
         //makes background sound to mute for the video
-        AudioSource.mute = true;
+        if (AudioSource != null)
+        {
+            AudioSource.mute = true;
+        }
 
         videoPlayer.Play();
         
@@ -585,6 +594,9 @@ public class ImgProvider : MonoBehaviour
         if (CurrentImgEntry != null && CurrentImgEntry.mediaType == MediaType.Video)
         {
             PlayVideo(CurrentImgEntry.videoUrl);
+        } else
+        {
+            StopVideo();
         }
     }
 
