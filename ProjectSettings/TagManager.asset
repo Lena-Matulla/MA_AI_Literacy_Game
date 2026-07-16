@@ -8,6 +8,7 @@ TagManager:
   - Laptop
   - Notebook
   - Tablet
+  - Coffee
   layers:
   - Default
   - TransparentFX
