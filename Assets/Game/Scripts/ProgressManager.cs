@@ -109,9 +109,10 @@ public class ProgressManager : MonoBehaviour
                     notebook.SetActive(true);
 
                     //update book
-                    book.UnlockNextTextPage();
+                    // book.UnlockNextTextPage();
+                    book.UnlockTextPagesUntil(ProgressManager.Instance.currentLevel);
 
-                    
+
                     //open book
                     book.OpenAtNewestUnlockedText();
                     

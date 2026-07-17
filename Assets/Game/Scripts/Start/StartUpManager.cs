@@ -120,6 +120,10 @@ public class StartUpManager : MonoBehaviour
         {
             ShowError("Could not connect to server.");
         }
+        else if (response == "PLAYER_DOES_NOT_EXIST")
+        {
+            ShowError("This Player ID does not exist.");
+        }
         else
         {
             ShowError("Login failed. Please contact admin.");
