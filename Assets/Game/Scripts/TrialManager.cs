@@ -191,22 +191,28 @@ public class TrialManager : MonoBehaviour
         //The image should only be clickable while marking a Fake answer
         if (_state != TrialState.Marking || _selection != Selection.Fake)
         {
-            _toggleChecked = false;
+            //_toggleChecked = false;
             interactionLayer.gameObject.SetActive(false);
             return;
         }
 
         if (toggle.isOn || imageProvider.currentMediaType == MediaType.Video)
         {
-            _toggleChecked = true;
+            //_toggleChecked = true;
             toggle.SetIsOnWithoutNotify(true);
+
+            //previously selected point no longer counts:
+            marked = false;
+
             interactionLayer.gameObject.SetActive(false);
             _Local = new Vector2(-1000, -1000);
             _Norm = new Vector2(-1, -1);
         }
         else
         {
-            _toggleChecked = false;
+            //user must click new point
+            marked = false;
+            //_toggleChecked = false;
             interactionLayer.gameObject.SetActive(true);
         }
     }
@@ -279,7 +285,7 @@ public class TrialManager : MonoBehaviour
             reactionTimeMs: reactionTimeMs,
             lastLocal: _Local,
             lastNormal: _Norm,
-            toggleChecked: _toggleChecked,
+            imageMarked: marked,
             confidence: _confidence,
             realclicked: _realClickedInTrial,
             fakeclicked: _fakeClickedInTrial,
