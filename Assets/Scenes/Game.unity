@@ -30254,7 +30254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &859136040
 RectTransform:
   m_ObjectHideFlags: 0
@@ -67214,7 +67214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProgressManager
   currentPoints: 0
   currentLevel: 0
-  levelThresholds: 0000000014000000280000003c000000500000006400000020030000
+  levelThresholds: 000000001e000000460000006e00000096000000c80000002c010000
   officeVisuals: {fileID: 774954490}
   notebook: {fileID: 376286509}
   book: {fileID: 697224754}
