@@ -23,10 +23,10 @@ public class StatisticVisualize : MonoBehaviour
     public void UpdateData(float accuracy, Dictionary<string, float> accPerGroup, Dictionary<string,float> accRealFake, float susBias, float falsePosRate, float falseNegRate, float avConfidence, Dictionary<string, float> avConfByCorrectness)
     {
         accuracyV.SetText(accuracy.ToString("F0") + "%");
-        accuracyHumanV.SetText(accPerGroup["Human"].ToString("F0") + "%");
-        accuracyAnimalV.SetText(accPerGroup["Animals"].ToString("F0") + "%");
-        accuracyArchitectureV.SetText(accPerGroup["Architecture"].ToString("F0") + "%");
-        accuracyTextV.SetText(accPerGroup["Text"].ToString("F0") + "%");
+        //accuracyHumanV.SetText(accPerGroup["Human"].ToString("F0") + "%");
+        //accuracyAnimalV.SetText(accPerGroup["Animals"].ToString("F0") + "%");
+        //accuracyArchitectureV.SetText(accPerGroup["Architecture"].ToString("F0") + "%");
+        //accuracyTextV.SetText(accPerGroup["Text"].ToString("F0") + "%");
 
         accuracyRealV.SetText(accRealFake["real"].ToString("F0") + "%");
         accuracyFakeV.SetText(accRealFake["fake"].ToString("F0") + "%");
