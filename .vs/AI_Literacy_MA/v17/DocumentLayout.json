@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\datasaving\\statisticvisualize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\datasaving\\statisticvisualize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\imgprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\imgprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|c:\\users\\matul\\documents\\unity\\projekte\\ai_literacy_ma\\assets\\game\\scripts\\trialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\trialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\trialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|c:\\users\\matul\\documents\\unity\\projekte\\ai_literacy_ma\\assets\\game\\scripts\\datasaving\\statisticvisualize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\datasaving\\statisticvisualize.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\datalogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\datalogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\imgprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|solutionrelative:assets\\game\\scripts\\imgprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F767244C-653F-79A0-1FDB-B8AD3C847CD2}|Assembly-CSharp.csproj|C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\assets\\game\\scripts\\imageprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -138,32 +138,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ImageProvider.cs",
-              "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ImageProvider.cs",
-              "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\ImageProvider.cs",
-              "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ImageProvider.cs",
-              "RelativeToolTip": "Assets\\Game\\Scripts\\ImageProvider.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-20T11:35:15.863Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TutorialManager.cs",
-              "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\Tutorial\\TutorialManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\Tutorial\\TutorialManager.cs",
-              "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\Tutorial\\TutorialManager.cs",
-              "RelativeToolTip": "Assets\\Game\\Scripts\\Tutorial\\TutorialManager.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAxwBcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T15:02:38.141Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 9,
@@ -211,6 +187,44 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-26T10:17:37.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TrialManager.cs",
+              "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\TrialManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\TrialManager.cs",
+              "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\TrialManager.cs",
+              "RelativeToolTip": "Assets\\Game\\Scripts\\TrialManager.cs",
+              "ViewState": "AgIAAL8BAAAAAAAAAAAAANYBAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T12:54:06.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ImgProvider.cs",
+              "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ImgProvider.cs",
+              "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\ImgProvider.cs",
+              "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ImgProvider.cs",
+              "RelativeToolTip": "Assets\\Game\\Scripts\\ImgProvider.cs",
+              "ViewState": "AgIAAC0CAAAAAAAAAAApwDwCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T11:37:09.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TutorialManager.cs",
+              "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\Tutorial\\TutorialManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\Tutorial\\TutorialManager.cs",
+              "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\Tutorial\\TutorialManager.cs",
+              "RelativeToolTip": "Assets\\Game\\Scripts\\Tutorial\\TutorialManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAxwBcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-17T15:02:38.141Z"
             },
             {
               "$type": "Document",
@@ -274,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "StatisticVisualize.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\DataSaving\\StatisticVisualize.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\DataSaving\\StatisticVisualize.cs",
@@ -284,6 +298,18 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-20T15:04:52.981Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ImageProvider.cs",
+              "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ImageProvider.cs",
+              "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\ImageProvider.cs",
+              "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ImageProvider.cs",
+              "RelativeToolTip": "Assets\\Game\\Scripts\\ImageProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-20T11:35:15.863Z"
             },
             {
               "$type": "Document",
@@ -299,7 +325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DataLogger.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\DataLogger.cs",
               "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\DataLogger.cs",
@@ -335,19 +361,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TrialManager.cs",
-              "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\TrialManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\TrialManager.cs",
-              "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\TrialManager.cs",
-              "RelativeToolTip": "Assets\\Game\\Scripts\\TrialManager.cs",
-              "ViewState": "AgIAAAkBAAAAAAAAAAAEwB4BAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T12:54:06.118Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Bootstrap.cs",
               "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\DataSaving\\Bootstrap.cs",
@@ -357,18 +370,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-15T09:44:52.374Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ImgProvider.cs",
-              "DocumentMoniker": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ImgProvider.cs",
-              "RelativeDocumentMoniker": "Assets\\Game\\Scripts\\ImgProvider.cs",
-              "ToolTip": "C:\\Users\\matul\\Documents\\Unity\\Projekte\\AI_Literacy_MA\\Assets\\Game\\Scripts\\ImgProvider.cs",
-              "RelativeToolTip": "Assets\\Game\\Scripts\\ImgProvider.cs",
-              "ViewState": "AgIAAJgAAAAAAAAAAADwv44CAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T11:37:09.946Z"
             },
             {
               "$type": "Document",

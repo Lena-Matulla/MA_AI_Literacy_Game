@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 
 public class TrialManager : MonoBehaviour
@@ -77,6 +78,13 @@ public class TrialManager : MonoBehaviour
     [SerializeField]
     private int pointUpdate = 10;
     [SerializeField] private TextMeshProUGUI ScoreThisRoundTextField;
+
+
+    //counter to store how many images are shown to give the notification to close the image game once in a while
+    private int imagecounter = 0;
+    [Header("Reminder to close imageGame")]
+    public int numberOfImageTilNotification = 6;
+    [SerializeField] private UnityEvent onReminderTriggered;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -292,6 +300,7 @@ public class TrialManager : MonoBehaviour
             whyText: whytext,
             currentCategory: category,
             mediaType: imageProvider.currentMediaType
+            
         );
 
         //exportManager.RegisterUsedImage(imageProvider.CurrentImgEntry);
@@ -307,6 +316,7 @@ public class TrialManager : MonoBehaviour
         }
 
         imageProvider.ConfirmCurrentImageCompleted();
+        
         ExitConfidenceState();
     }
 
@@ -322,6 +332,7 @@ public class TrialManager : MonoBehaviour
         confirmeMarked.interactable = true;
 
 
+        imagecounter++;
 
         StartNewTrial();
         ResetSelectionUI();
@@ -361,6 +372,12 @@ public class TrialManager : MonoBehaviour
         toggle.SetIsOnWithoutNotify(false);
         _toggleChecked = false;
         interactionLayer.gameObject.SetActive(false);
+
+        if(imagecounter >= numberOfImageTilNotification)
+        {
+            onReminderTriggered?.Invoke();
+            imagecounter = 0;
+        }
     }
 
 

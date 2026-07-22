@@ -82,6 +82,9 @@ public class ImgProvider : MonoBehaviour
 
     public int playthroughs { get; private set; }
 
+    [Header("Do Videos have sound -> Need overall sound to mute?")]
+    public bool muteMusicWhileVideo = false;
+
 
  
 
@@ -422,7 +425,8 @@ public class ImgProvider : MonoBehaviour
         targetImage.texture = videoRenderTexture;
 
         //makes background sound to mute for the video
-        if (AudioSource != null)
+        
+        if (AudioSource != null && muteMusicWhileVideo)
         {
             AudioSource.mute = true;
         }
@@ -447,7 +451,7 @@ public class ImgProvider : MonoBehaviour
     private void StopVideo()
     {
         
-        if (AudioSource != null)
+        if (AudioSource != null && muteMusicWhileVideo)
         {
             // makes background sound go unmute again
             AudioSource.mute = false;
@@ -574,7 +578,7 @@ public class ImgProvider : MonoBehaviour
     //To handle the case that the ImgGame gets closed and reopend on an video
     private void OnDisable()
     {
-        if (AudioSource != null)
+        if (AudioSource != null && muteMusicWhileVideo)
         {
             // makes background sound go unmute again
             AudioSource.mute = false;
