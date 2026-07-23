@@ -37,6 +37,8 @@ Thumbs.db
 
 #ignore the testruns (builds)
 TestRun*/
+Kicher_TestRun/
+Kicher_TestRun.zip
 
 # Your paid tileset folder
 #/Assets/Tileset/Paid/
