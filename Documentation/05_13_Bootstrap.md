@@ -1,7 +1,7 @@
 # Bootstrap.cs
 
 ## Purpose
-Called when the game is started. Manages that the Config and the SessionID is called in the beginning.
+Called when the game is started. Makes sure the Config is loaded and starts the tutorial.
 
 ## Used By
 Bootstrap
@@ -15,9 +15,8 @@ Bootstrap
 Called when the game is started.
 Calls:
 - GameConfigManager.LoadOrCreateConfig()
-- SessionIDManager.StartNewSession();
+- Sets the tutorial active
 
-then prints out the current playerID, experimentID and Server URL for debugging.
 
 ## Data
 /

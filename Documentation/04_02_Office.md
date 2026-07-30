@@ -17,10 +17,7 @@ In OfficeRoot:
   - includes all the NPCs and their target points. Those are the points where the NPCs are walking to.
 - Overlays
   - The black overlays which hide the rooms before they are exposed in their regarding levels
-- OfficeProgressManager
-  - Contains the UpdateOfficeVisual script
-  - This script manages when what will be exposed in the office visually.
-  - see more in chapter 5.
+
 
 #
 - A*
@@ -29,7 +26,6 @@ In OfficeRoot:
 
 ## Responsibilities
 - takes care of the whole office
-- updates and reveals parts of the office based on the levels
 - manages all of the Parts regarding the office
 
 

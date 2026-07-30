@@ -1973,7 +1973,6 @@ Transform:
   - {fileID: 1726405211}
   - {fileID: 1859274149}
   - {fileID: 2119752527}
-  - {fileID: 774954489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &100342384 stripped
@@ -14908,7 +14907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 296168707}
   m_Layer: 5
-  m_Name: 5 Min Left Notification
+  m_Name: 5MinLeftNotification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15137,7 +15136,7 @@ GameObject:
   - component: {fileID: 310301467}
   - component: {fileID: 310301468}
   m_Layer: 0
-  m_Name: Statistic
+  m_Name: StatisticManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29010,12 +29009,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774954488}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 100160746}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &774954490
 MonoBehaviour:
@@ -66981,7 +66980,7 @@ GameObject:
   - component: {fileID: 1951838296}
   - component: {fileID: 1951838298}
   m_Layer: 0
-  m_Name: TimeLimit
+  m_Name: TimeLimitManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78320,6 +78319,12 @@ MonoBehaviour:
   - Animals
   - Architecture
   - Text
+  fallbackRealVideos:
+  - D_VR1.mp4
+  - D_VR2.mp4
+  fallbackFakeVideos:
+  - D_VF1.mp4
+  - D_VF2.mp4
 --- !u!1 &7970653065261875213
 GameObject:
   m_ObjectHideFlags: 0
@@ -79357,6 +79362,7 @@ SceneRoots:
   - {fileID: 193274272}
   - {fileID: 376286513}
   - {fileID: 820512857}
+  - {fileID: 774954489}
   - {fileID: 2027753842}
   - {fileID: 1894418962}
   - {fileID: 1105154055}

@@ -88,7 +88,7 @@ public class ImgProvider : MonoBehaviour
 
  
 
-
+    //the fallback images
     [SerializeField]
     private List<string> fallbackCategories = new List<string>
     {
@@ -97,20 +97,47 @@ public class ImgProvider : MonoBehaviour
         "Architecture",
         "Text"
     };
+    //the fallback videos (have to load differently, because WebGL would not work otherwise
+    [Header("Fallback Videos in StreamingAssets/Videos")]
+
+    [SerializeField]
+    private List<string> fallbackRealVideos = new List<string>
+{
+    "D_VR1.mp4",
+    "D_VR2.mp4"
+};
+
+    [SerializeField]
+    private List<string> fallbackFakeVideos = new List<string>
+{
+    "D_VF1.mp4",
+    "D_VF2.mp4"
+};
+
 
     public void Initialize()
     {
         if (isInitialized)
             return;
 
+        allImages = new List<ImgEntry>();
+
+//chosen before the build
+#if UNITY_WEBGL && !UNITY_EDITOR
+    //Browser version always uses fallback media
+    LoadFallbackFolders();
+#else
+    //exe first checks for external ImageData folder
         basePath = Path.Combine(
             Directory.GetParent(Application.dataPath).FullName,
             "ImageData"
         );
 
-        allImages = new List<ImgEntry>();
+        
 
         LoadFolders();
+
+#endif
 
         if (allImages.Count == 0)
         {
@@ -118,7 +145,7 @@ public class ImgProvider : MonoBehaviour
             return;
         }
 
-        //MakeDictionary();
+        
         if (!TryLoadStudyProgress())
         {
             BuildBalancedStudyOrder();
@@ -148,6 +175,98 @@ public class ImgProvider : MonoBehaviour
 
     }*/
 
+
+    private void LoadFallbackFolders()
+    {
+        Debug.Log("Loading fallback images from Resources " +
+        "and fallback videos from StreamingAssets.");
+
+        //Load fallback images
+        foreach (string categoryName in fallbackCategories)
+        {
+            LoadFallbackResources(
+                categoryName + "/Real",
+                false,
+                categoryName
+            );
+
+            LoadFallbackResources(
+                categoryName + "/Fake",
+                true,
+                categoryName
+            );
+        }
+        //Load the videos
+        LoadFallbackVideos();
+    }
+    //Fallback videos for the webgl solution have to be loaded differently
+    private void LoadFallbackVideos()
+    {
+        foreach (string fileName in fallbackRealVideos)
+        {
+            AddFallbackVideo(fileName, false);
+        }
+
+        foreach (string fileName in fallbackFakeVideos)
+        {
+            AddFallbackVideo(fileName, true);
+        }
+    }
+
+    private void AddFallbackVideo(string fileName, bool isFake)
+    {
+        string videoUrl;
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+
+    // WebGL: StreamingAssets is an HTTP URL
+    videoUrl =
+        Application.streamingAssetsPath.TrimEnd('/') +
+        "/Video/" +
+        fileName;
+
+#else
+
+        // Editor and EXE: StreamingAssets is a local file path
+        string videoPath = Path.Combine(
+            Application.streamingAssetsPath,
+            "Video",
+            fileName
+        );
+
+        if (!File.Exists(videoPath))
+        {
+            Debug.LogError("Fallback video not found: " + videoPath);
+            return;
+        }
+
+        FileInfo fileInfo = new FileInfo(videoPath);
+
+        if (fileInfo.Length == 0)
+        {
+            Debug.LogError("Fallback video is empty: " + videoPath);
+            return;
+        }
+
+        videoUrl = new Uri(videoPath).AbsoluteUri;
+
+#endif
+        ImgEntry entry = new ImgEntry
+        {
+            texture = null,
+            videoUrl = videoUrl,
+            filePath = null,
+            fileName = fileName,
+            isFake = isFake,
+            category = "Video",
+            mediaType = MediaType.Video,
+            id = CreateImageId("Video", isFake, fileName)
+        };
+
+        allImages.Add(entry);
+
+        Debug.Log("Loaded fallback video: " + videoUrl);
+    }
 
 
     private void LoadFolders()
@@ -191,14 +310,12 @@ public class ImgProvider : MonoBehaviour
         //Use fallback images and categories from resources
         if (!loadedExternalImages)
         {
-            Debug.LogWarning("No valid external categories found. Loading fallback categories from Resources.");
+            Debug.LogWarning(
+                "No valid external categories found. " +
+                "Loading fallback media."
+            );
 
-            foreach (string categoryName in fallbackCategories)
-            {
-                LoadFallbackResources(Path.Combine(categoryName, "Real"), false, categoryName);
-                LoadFallbackResources(Path.Combine(categoryName, "Fake"), true, categoryName);
-            }
-
+            LoadFallbackFolders();
         }
     }
 
@@ -295,6 +412,7 @@ public class ImgProvider : MonoBehaviour
                 fileName = fName,
                 isFake = isFake,
                 category = cat,
+                mediaType = MediaType.Image,
                 id = CreateImageId(cat, isFake, fName)
             };
             allImages.Add(entry);

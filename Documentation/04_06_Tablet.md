@@ -8,7 +8,8 @@ On default disabled, gets enabled when it is clicked on the desk.
 Background:
 - Contains the the two design points
 - one for the "camera" of the tablet
-- one for the home button of the tablet.
+  
+Home button.
   - This button can be clicked. with that the tablet is closed.
 
 Text:

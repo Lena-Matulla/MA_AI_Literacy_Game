@@ -28,9 +28,9 @@ Managers:
   - To export the files, but outdated!!!
   - Script: Exportmanager
 - PasswordManager
+  - OUTDATED
   - To password safe the export
   - script: PasswordManager
-  - also outdated
 
 ## Responsibilities
 Contains all the sub parts of the Image Game and keeps them inside of one Group.

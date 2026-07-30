@@ -20,7 +20,7 @@ Each frame it checks if the mouse clicked. if yes, it selects either deskCam or 
 
 When the Tablet is clicked (collider with Tag "Tablet") it calls the LoadData() of Statistic. Each time it is clicked the current data is read out to calculate and show current statistics. That is handled trough the statistic script. Can be seen in "05_15_Statistic.md". It also sets the Tablet Gameobject active.
 
-Later on other objects (Notebook) will be added
+When the Notebook is clicked, the Notebook gets set to active
 
 ## Data
 

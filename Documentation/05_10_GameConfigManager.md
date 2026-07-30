@@ -13,6 +13,7 @@ Class to create,load and adjust the config file of the project.
 - GameConfig
   - Container class which gives the elements of the config file
     - playerID
+    - password
     - experimentID
     - serverURL
     - createdAt

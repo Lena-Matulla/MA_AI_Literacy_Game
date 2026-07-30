@@ -1,8 +1,25 @@
 # Export
 
-Currently the export button is not displayed. 
+The old manual export button and zip file export are currently not used.
 
-If it would be activated, it would work like this:
+The data is now automatically sent to the server through the Webcommunication script.
 
-Once the correct Passwort is inserted, the Button is enabled. Then can be clicked.
-The export is in a zip file containing the csv-log file, as well as all used images and a short csv file which describes the session id, the time of export as well as how many used images there were.
+The upload contains:
+
+* Player ID
+* Password
+* complete csv-log file of the player
+* complete config file
+* current TrustValue points
+* current level
+* amount of ImageGame playthroughs
+
+The data is stored inside a CommunicationToken, converted into json and sent to the server.
+
+When the Close Game button is clicked, the game first waits for an already active upload to finish.
+
+After that, the current data is loaded and sent to the server. The game only closes after the final upload is finished.
+
+A data upload can also be triggered through SendData(). The sendData bool can be used as a manual Debug trigger through the Inspector.
+
+The old zip file containing the csv-log, used images and session information is no longer created.
