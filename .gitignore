@@ -40,5 +40,9 @@ TestRun*/
 Kicher_TestRun/
 Kicher_TestRun.zip
 
+
+#ignore webcommunicator
+/Assets/Game/Scripts/Webcommunication/Webcommunication.cs
+
 # Your paid tileset folder
 #/Assets/Tileset/Paid/
