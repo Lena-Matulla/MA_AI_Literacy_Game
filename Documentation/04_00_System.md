@@ -1,5 +1,6 @@
 # System
 
+GameScene:
 The Game is divided in different Groups through empty parents and blocks in the Hierarchy.
 
 - UI Canvas, which includes the Canvas which spans over the whole screen all the time, it provides:

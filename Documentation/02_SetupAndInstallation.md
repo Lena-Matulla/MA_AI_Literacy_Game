@@ -5,5 +5,10 @@
 - Platform: Windows
 
 ## How to run
-Start exe
-....TO BE CONTINUED
+Unity:
+Downlaod github & start it in Unity. 
+Load all necessary packages
+
+exe:
+Download zip containing exe
+start exe

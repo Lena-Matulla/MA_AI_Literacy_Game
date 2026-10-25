@@ -1,6 +1,9 @@
 using UnityEngine;
 using Pathfinding;
 
+/// <summary>
+/// Handles animation of chars
+/// </summary>
 [RequireComponent(typeof(AIPath))]
 public class CharAnimationUpdater : MonoBehaviour
 {
@@ -30,7 +33,7 @@ public class CharAnimationUpdater : MonoBehaviour
         bool isMoving = velocity.magnitude > moveThreshold && !ai.reachedDestination;
         animator.SetBool("isRuning", isMoving);
 
-        // flip char based on direction
+        //flip char based on direction
         if (Mathf.Abs(velocity.x) > 0.01f)
         {
             spriteRenderer.flipX = velocity.x < 0;

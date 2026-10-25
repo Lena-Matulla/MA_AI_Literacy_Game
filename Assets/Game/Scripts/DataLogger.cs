@@ -3,6 +3,11 @@ using System;
 using System.IO;
 using System.Globalization;
 
+/// <summary>
+///Class to log all the image data and informations in the csv.
+///Creates one trial log file per player and adds every completed trial as a new line.
+/// </summary>
+
 public class DataLogger : MonoBehaviour
 {
     public string PlayerId { get; private set; }
@@ -17,9 +22,7 @@ public class DataLogger : MonoBehaviour
 
     private void Awake()
     {
-        //get playerID and SessionID from Managers
         PlayerId = GameConfigManager.Config.playerID;
-
         SessionId = SessionIDManager.SessionID;
         _sessionStartTime = SessionIDManager.sessionStartTime;
         _sessionStartTimeString = _sessionStartTime.ToString("yyyy-MM-dd HH:mm:ss");

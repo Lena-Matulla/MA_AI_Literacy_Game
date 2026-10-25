@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-
+/// <summary>
+/// Used to calculate easy statistics with the data of the log files.
+/// They are then displayed to the user through the "tablet"
+/// </summary>
 public class Statistic : MonoBehaviour
 {
     public CSVLogParser csvLogParser;
@@ -89,7 +92,7 @@ public class Statistic : MonoBehaviour
         statisticVisualize.UpdateData(accuracy,dic,dicRF,SusBias,falsePosRate,falseNegRate,averConfidence, dicConf);  
     }
 
-    // Overall Accuracy
+    //Overall Accuracy
     private float CalculateAccuracy(List<CSVDataForStatistics> trials)
     {
         if (trials.Count == 0)
@@ -106,7 +109,7 @@ public class Statistic : MonoBehaviour
         return (float)correct / trials.Count * 100f;
     }
 
-    // Accuracy per Category
+    //Accuracy per Category
     private Dictionary<string, float> CalculateAccuracyPerGroup(List<CSVDataForStatistics> trials)
     {
         Dictionary<string,float> accuracyGroup = new Dictionary<string,float>();
@@ -126,7 +129,7 @@ public class Statistic : MonoBehaviour
         return accuracyGroup;
     }
 
-    // Accuracy per Fake/Real
+    //Accuracy per Fake/Real
     private Dictionary<string,float> CalculateAccuracyRealFake(List<CSVDataForStatistics> trials)
     {
         Dictionary<string, float> accuracyRF = new Dictionary<string, float>();
@@ -148,7 +151,6 @@ public class Statistic : MonoBehaviour
 
     //Suspicion Bias -> General distrust?
     //times user selected fake / all trials
-
     private float CalculateSuspicionBias(List<CSVDataForStatistics> trials)
     {
         float susBias = 0;
@@ -169,15 +171,15 @@ public class Statistic : MonoBehaviour
 
     }
 
-    // falsePositive = true:
-    // False Positives -> Real images incorrectly judged as fake
-    // Rate = (real image + user selected fake) / all real images * 100
-    // Out of all real images, how many were falsly accused of being fake?
+    //falsePositive = true:
+    //False Positives -> Real images incorrectly judged as fake
+    //Rate = (real image + user selected fake) / all real images * 100
+    //Out of all real images, how many were falsly accused of being fake?
 
-    // falsePositive = false:
-    // False Negatives -> Fake images incorrectly judged as real
-    // Rate = (fake image + user selected real) / all fake images * 100
-    // Out of all fake images, how many were missed?
+    //falsePositive = false:
+    //False Negatives -> Fake images incorrectly judged as real
+    //Rate = (fake image + user selected real) / all fake images * 100
+    //Out of all fake images, how many were missed?
     private float CalculateFalsePositiveOrNegativeRate(List<CSVDataForStatistics> trials, bool falsePositive)
     {
         float result = 0;
@@ -204,8 +206,7 @@ public class Statistic : MonoBehaviour
 
   
     //Confidence:
-
-    // Average Confidence
+    //Average Confidence
     private float CalculateAverageConfidence(List<CSVDataForStatistics> trials)
     {
         float result = 0;
@@ -221,8 +222,8 @@ public class Statistic : MonoBehaviour
         return result;
     }
 
-    // Correct Confidence
-    // Confidence on trials where chosen correct
+    //Correct Confidence
+    //Confidence on trials where chosen correct
     private Dictionary<string, float> CalculateConfidenceByCorrectness(List<CSVDataForStatistics> trials)
     {
         var grouped = trials.GroupBy(t => t.accuracy);
@@ -237,7 +238,7 @@ public class Statistic : MonoBehaviour
                 confidence += trial.confidence;
             }
 
-            // acc.Key == 1 means correct trials
+            //acc.Key == 1 means correct trials
             string key = acc.Key == 1 ? "correct" : "incorrect";
 
             result[key]= confidence / acc.Count();

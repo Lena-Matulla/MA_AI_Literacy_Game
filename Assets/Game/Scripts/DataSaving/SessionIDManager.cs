@@ -3,6 +3,10 @@ using System;
 using System.Data;
 using System.IO;
 
+/// <summary>
+/// Class to handle the SessionID 
+/// (New each time the game is closed and started again (not the ingame game, but the whole))
+/// </summary>
 public class SessionIDManager : MonoBehaviour
 {
 

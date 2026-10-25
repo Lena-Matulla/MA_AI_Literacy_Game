@@ -2,7 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-
+/// <summary>
+/// Manages the login at the start of the game.
+/// Checks the entered Player ID and password through the Webcommunication class.
+/// If the login is successful, it saves the login data, starts a new session and loads the gameplay scene.
+/// </summary>
 
 public class StartUpManager : MonoBehaviour
 {
@@ -10,13 +14,10 @@ public class StartUpManager : MonoBehaviour
     [SerializeField] private TMP_InputField passwordInput;
     [SerializeField] private TMP_Text errorText;
     [SerializeField] private string gameplaySceneName = "GameScene";
-
     [SerializeField] private string requiredPassword = "test123";
 
     //Connection to the Webcommunicator for the Login Check
     [SerializeField] private Webcommunication webcommunication;
-
-
 
     private void Start()
     {
@@ -39,6 +40,7 @@ public class StartUpManager : MonoBehaviour
         }
     }
 
+    //Confirms the playerID and password
     public void ConfirmPlayerID()
     {
         string enteredId = playerInput.text.Trim();
@@ -64,29 +66,6 @@ public class StartUpManager : MonoBehaviour
             Debug.LogWarning("Password cannot be empty.");
             return;
         }
-
-        //TODO
-        /*
-        if (enteredPassword != requiredPassword)
-        {
-            ShowError("Wrong password.");
-            Debug.LogWarning("Wrong password entered.");
-            return;
-        }
-        */
-
-        /*
-        GameConfigManager.SetPlayerID(enteredId);
-        GameConfigManager.SetPassword(enteredPassword);
-
-        SessionIDManager.StartNewSession();
-
-        Debug.Log($"Player: {GameConfigManager.Config.playerID}, " +
-                  $"Experiment: {GameConfigManager.Config.experimentID}, " +
-                  $"Server: {GameConfigManager.Config.serverURL}");
-
-        SceneManager.LoadScene(gameplaySceneName);
-        */
 
         webcommunication.CheckLogin(enteredId, enteredPassword, HandleLoginResponse);
 

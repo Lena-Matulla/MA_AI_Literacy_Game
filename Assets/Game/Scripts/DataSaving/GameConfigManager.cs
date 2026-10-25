@@ -3,7 +3,9 @@ using System;
 using System.IO;
 
 
-//class which is the structure of all the Configurations which are stored
+/// <summary>
+/// Class to create,load and adjust the config file of the project.
+/// </summary>
 [Serializable]
 public class GameConfig
 {
@@ -30,7 +32,7 @@ public class GameConfigManager
         {
             Config = new GameConfig
             {
-                playerID = "",//Guid.NewGuid().ToString(),
+                playerID = "",
                 password = "",
                 experimentID = "EXP_001",
                 serverURL = "default",
@@ -52,7 +54,7 @@ public class GameConfigManager
 
         if (string.IsNullOrWhiteSpace(Config.playerID))
         {
-            Config.playerID = "";//Guid.NewGuid().ToString();
+            Config.playerID = "";
             changed = true;
         }
 
@@ -113,7 +115,7 @@ public class GameConfigManager
 
     public static void ResetPlayerID()
     {
-        Config.playerID = "";//"Guid.NewGuid().ToString()";
+        Config.playerID = "";
         SaveConfig();
     }
 }

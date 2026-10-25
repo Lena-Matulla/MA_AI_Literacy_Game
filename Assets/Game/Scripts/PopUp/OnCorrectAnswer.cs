@@ -2,9 +2,12 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-//Called from TrialManager when the correct answer was given
-//Starts the animation of the Thumbs Up and updates the score on the computer screen
-//score is updated after a delay to fit the animation time :D
+
+/// <summary>
+///Called from TrialManager when the correct answer was given
+///Starts the animation of the Thumbs Up and updates the score on the computer screen
+///score is updated after a delay to fit the animation time :D
+/// </summary>
 public class OnCorrectAnswer : MonoBehaviour
 {
     [SerializeField]

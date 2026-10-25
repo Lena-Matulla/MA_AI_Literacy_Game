@@ -4,6 +4,9 @@ using System.IO;
 using System.IO.Compression;
 using System.Collections.Generic;
 
+/// <summary>
+/// Old, Not used anymore. Was the first idea to make a downloadable zip.
+/// </summary>
 
 public class ExportManager : MonoBehaviour
 {

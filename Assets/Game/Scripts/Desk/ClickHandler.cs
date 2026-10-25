@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// checks if the laptop, tablet or notebook on the desk is clicked. Enables the corresponding GameObject.
+/// </summary>
 public class ClickHandler : MonoBehaviour
 {
 

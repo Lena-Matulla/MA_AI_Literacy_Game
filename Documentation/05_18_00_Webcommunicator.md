@@ -144,4 +144,3 @@ CheckLoginRoutine() returns CONNECTION_ERROR for every failed web request.
 
 The sendData bool is mainly used as a manual Debug trigger through the Inspector.
 
-The TODO for checking the internet connection is not implemented yet.

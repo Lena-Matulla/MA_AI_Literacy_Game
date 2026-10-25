@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using UnityEngine;
+
+/// <summary>
+/// Reads out the csv log files and stores the values inside of a constructor class for better handling. Used for statistics
+/// </summary>
 public class CSVDataForStatistics
 {
     public string playerID;
@@ -35,20 +39,22 @@ public class CSVLogParser : MonoBehaviour
     {
         string logsDir = Path.Combine(Application.persistentDataPath, "Logs");
         filePath = Path.Combine(logsDir, $"player_{GameConfigManager.Config.playerID}_trials.csv");
-
-        //data = LoadData(filePath);
-        //PrintAllParsedData(data);
-
     }
 
     public List<CSVDataForStatistics> Load()
     {
         data =  LoadData(filePath);
         PrintAllParsedData(data);
-        return data;
-        
+        return data;   
     }
 
+    /// <summary>
+    /// Loads the csv (if there is one) It iterates over each line and parses its values with 
+    /// ParseCsvLine(lines[i]). Each time creates a new CSVDataForStatistics object and stores alle the values.
+    /// adds it to loadedData (List of CSVDataForStatistics objects).
+    /// </summary>
+    /// <param name="filePath"></param>
+    /// <returns></returns>
     private List<CSVDataForStatistics> LoadData(string filePath)
     {
         List<CSVDataForStatistics> loadedData = new List<CSVDataForStatistics>();
@@ -60,8 +66,6 @@ public class CSVLogParser : MonoBehaviour
 
         string[] lines = File.ReadAllLines(filePath);
 
-
-
         //header is skipped
         for (int i = 1; i < lines.Length; i++)
         {
@@ -72,15 +76,6 @@ public class CSVLogParser : MonoBehaviour
             //Parses based on function, because if i used "," it could crash at whyText
             List<string> values = ParseCsvLine(lines[i]);
 
-            /* Debugging
-
-            Debug.Log($"Line {i}: values count = {values.Count}");
-
-            for (int v = 0; v < values.Count; v++)
-            {
-                Debug.Log($"values[{v}] = '{values[v]}'");
-            }
-            */
             CSVDataForStatistics trial = new CSVDataForStatistics();
 
             trial.playerID = values[0];
@@ -114,7 +109,10 @@ public class CSVLogParser : MonoBehaviour
         return loadedData;
     }
 
-
+    /// <summary>
+    /// Helper function for debugging. prints it out. There to check if the data is loaded correctly
+    /// </summary>
+    /// <param name="parsedData"></param>
     private void PrintAllParsedData(List<CSVDataForStatistics> parsedData)
     {
         Debug.Log($"--- CSV parsed entries: {parsedData.Count} ---");
@@ -147,6 +145,7 @@ public class CSVLogParser : MonoBehaviour
         }
     }
 
+    //Used to make sure that the parsing is correct aka for example handles commata
     private List<string> ParseCsvLine(string line)
     {
         List<string> values = new List<string>();

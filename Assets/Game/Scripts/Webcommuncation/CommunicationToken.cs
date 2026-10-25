@@ -4,6 +4,11 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using static UnityEngine.Rendering.STP;
+
+/// <summary>
+///Container class for the data which is sent through the Webcommunication.
+///Loads the current player information, progress, logfile and config file into one object.
+/// </summary>
 [Serializable]
 public class CommunicationToken
 {
@@ -17,17 +22,6 @@ public class CommunicationToken
 
     public void LoadData()
     {
-        // Todo: Echte Inhalte auslesen!
-        /*
-        player_id = "Player01";
-        password = "secret";
-        logfile = "log.txt";
-        config = "default";
-        points = 150;
-        level = 3;
-        playthroughs = 5;
-           */
-
         GameProgressData progress = SaveManager.Load();
 
         player_id = GameConfigManager.Config.playerID;

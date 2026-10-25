@@ -1,10 +1,17 @@
 using UnityEngine;
-
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+///Script has information about which objects get revealed per level
+///Display is called at levelup, the regarding objects are then set to visible through that function
+///The objects are linked through the Inspector
+/// </summary>
+/// 
 
-// Here the objects which get revealed/enabled per level are linked in the inspector
+//Data container in which the objectgroups are listed/linked with: groupname (string),
+//requiredLevel (int), targetGroup (GameObject), activeWhenUnlocked (bool)
+//(decideds if the object should be disabled or enabled once the level is reached).
 [System.Serializable]
 public class OfficeUnlockGroup
 {
@@ -15,7 +22,6 @@ public class OfficeUnlockGroup
 }
 
 
-// The script which makes it visible
 public class UpdateOfficeVisuals : MonoBehaviour
 {
 
@@ -48,8 +54,6 @@ public class UpdateOfficeVisuals : MonoBehaviour
         if (ProgressBar != null)
         {
            ProgressBar.AdjustPoints(currentPoints, maxpoints);
-            //ProgressBar.maxValue = maxpoints;
-            //ProgressBar.value = currentPoints;
         }
     }
 

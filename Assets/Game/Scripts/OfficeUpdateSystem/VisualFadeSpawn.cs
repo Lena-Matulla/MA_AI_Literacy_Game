@@ -1,8 +1,11 @@
 using UnityEngine;
 
+/// <summary>
+///Makes that the objects fade in and do not just show -> looks better.
+///Takes all the child objects and let them fade in
+///Works if all the children spawn at the same time!
+/// </summary>
 
-//Makes that the objects fade in and do not just show. Takes all the child objects and let them fade in
-//Works if all the children spawn at the same time!
 public class VisualFadeSpawn : MonoBehaviour
 {
     [SerializeField]
@@ -11,8 +14,6 @@ public class VisualFadeSpawn : MonoBehaviour
     private float elapsedTime = 0f;
     private float currentalpha = 0;
     SpriteRenderer[] children;
-
-
 
     private void OnEnable()
     {
@@ -23,8 +24,6 @@ public class VisualFadeSpawn : MonoBehaviour
         {
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
         }
-
-
     }
 
     private void OnDisable()
@@ -36,7 +35,6 @@ public class VisualFadeSpawn : MonoBehaviour
     private void Update()
     {
         elapsedTime += Time.deltaTime;
-
         if (elapsedTime <= fadeTime) 
         {
             foreach (SpriteRenderer sr in children)
@@ -44,8 +42,6 @@ public class VisualFadeSpawn : MonoBehaviour
                 currentalpha = elapsedTime / fadeTime;
                 sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, currentalpha);
             }
-        }
-        
+        } 
     }
-
 }

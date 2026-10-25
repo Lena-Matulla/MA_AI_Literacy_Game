@@ -4,8 +4,8 @@
 Contains the Game folder and its related files.
 Also contains the Tileset folder, which contains the used tileset which was paid for.
 As well as the Resources Folder where the Images are in.
-It also contains the Scenes Folder with the Scene Game, which is the Game itself. And the Scene StartGame, which is the one which is called first.
-Contains the Audio Folder where the audio files are stored.
+It also contains the Scenes Folder with the Scene "Game", which is the decision Game itself. And the Scene "StartGame", which is the one which is called first and which contains the login.
+Also contains the Audio Folder where the audio files are stored.
 
 
 
@@ -14,14 +14,14 @@ Contains Audio, Images, Prefabs and Scripts.
 
 ## Assets/Game/Audio
 Here the Background music as well as the effects are stored.
-All are CC0 so usable even for commercial cases.
+All are CC0 or CC4 so usable even for commercial cases (credits).
 
 ## Assets/Game/Images
 Contains old unused folders.
 But also contains for example the texture of the desk and computer background as well as the props.
 
 ## Assets/Game/Prefabs
-Contains the ImageGame prefab (was done before making the rest of the game)
+Contains the ImageGame prefab (was done before making the rest of the game) but not used anymore
 
 ## Assets/Game/Scripts
 Contains folders:

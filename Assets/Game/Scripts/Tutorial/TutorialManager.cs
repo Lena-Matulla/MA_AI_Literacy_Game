@@ -1,8 +1,14 @@
 using System.Security.Cryptography.X509Certificates;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+///Manages the different pages of the Tutorial.
+///Handles the Next and Back buttons and activates the correct Tutorial page.
+///Also deactivates the click GameObject while the Tutorial is open.
+/// </summary>
 public class TutorialManager : MonoBehaviour
 {
     public GameObject[] gameObjects;
@@ -55,11 +61,7 @@ public class TutorialManager : MonoBehaviour
             {
                 gameObjects[i].SetActive(true);
             }
-
-
-            
         }
-
         if (currentPos == 0)
         {
             back.interactable = false;
@@ -74,5 +76,4 @@ public class TutorialManager : MonoBehaviour
             back.interactable = true;
         }
     }
-
 }
