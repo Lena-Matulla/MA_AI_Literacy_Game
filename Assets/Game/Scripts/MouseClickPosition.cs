@@ -3,6 +3,11 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
+/// <summary>
+/// Checks wheter the image is clicked and where, that position is then marked
+/// OnImageClicked invokes the updatemarked of the Trialmanager
+/// </summary>
+
 public class MouseClickPosition : MonoBehaviour, IPointerClickHandler
 {
     [Header("Refs")]

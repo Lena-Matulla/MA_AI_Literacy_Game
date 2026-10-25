@@ -1,6 +1,12 @@
 using UnityEngine;
 using System.IO;
 
+/// <summary>
+///Saves the current Progress in the persistent data path. Therefore the current progress is still there even if the game was closed.
+///Creates a separate save file for every player based on the player ID from the GameConfigManager.
+///data is given and stored as GameProgressData object and converted to json
+/// </summary>
+
 public class SaveManager : MonoBehaviour
 {
     private static string SaveDirectory =>
@@ -27,6 +33,7 @@ public class SaveManager : MonoBehaviour
         return Path.Combine(SaveDirectory, $"player_{safePlayerId}_progress.json");
     }
 
+    //save the data
     public static void Save(GameProgressData data)
     {
         string path = GetSavePath();
@@ -44,6 +51,7 @@ public class SaveManager : MonoBehaviour
         Debug.Log("Saved progress to: " + path);
     }
 
+    //load current data
     public static GameProgressData Load()
     {
         string path = GetSavePath();

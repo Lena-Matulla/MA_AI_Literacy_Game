@@ -8,22 +8,21 @@ using UnityEngine.Events;
 using UnityEngine.Video;
 using Object = UnityEngine.Object;
 
+/// <summary>
+///Provides and updates the RawImage with the pictures or videos which are displayed and used in the ImageGame game.
+///Also makes the media accessible through the ImageData folder beside the exe.
+///Creates a random but balanced study order out of the available categories and the real and fake media.
+/// </summary>
 
-/*
-public enum ImgCategory
-{
-    Human,
-    Animals,
-    Architecture,
-    Text
-}
-*/
 
+//enum which defines the two types of media
 public enum MediaType
 {
     Image,
     Video
 }
+
+//container class for the media to store all relevant data
 public class ImgEntry
 {
     //for images, if no image then it is null
@@ -49,10 +48,8 @@ public class ImgProvider : MonoBehaviour
     //Reference to the Audio to mute the music while video is playing
     [SerializeField]
     public AudioSource AudioSource;
-
     [Header("Reference to RawImage for display")]
     public RawImage targetImage;
-
     private List<ImgEntry> allImages;
     Dictionary<string, List<ImgEntry>> categorizedImages;
 
@@ -63,17 +60,10 @@ public class ImgProvider : MonoBehaviour
     public ImgEntry CurrentImgEntry {  get; private set; }
     public bool currentIsFake { get; private set; }
     public string currentImgName { get; private set; }
-
     public string currentCategory {  get; private set; }
-
     public MediaType currentMediaType { get; private set; }
-
     private string basePath;
-
     private bool isInitialized = false;
-
-
-
 
     [Header("Study Events")]
     public UnityEvent onStudyFinished;
@@ -85,9 +75,6 @@ public class ImgProvider : MonoBehaviour
     [Header("Do Videos have sound -> Need overall sound to mute?")]
     public bool muteMusicWhileVideo = false;
 
-
- 
-
     //the fallback images
     [SerializeField]
     private List<string> fallbackCategories = new List<string>
@@ -98,6 +85,11 @@ public class ImgProvider : MonoBehaviour
         "Text"
     };
 
+
+    //initializes the list and tries to load images
+    //If no media could be loaded, a Debug warning is called and returned.
+    //also tries to load saved study progress to reaccess last point in image list
+    //to start from the next image. Otherwise calls function to create new study order
     public void Initialize()
     {
         if (isInitialized)
@@ -133,22 +125,12 @@ public class ImgProvider : MonoBehaviour
         Initialize();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    /*void Awake()
-    {
-        //basepath to folder with images
-        //Folders sit beside exe (Game.exe ImageData)
-        basePath = Path.Combine(Directory.GetParent(Application.dataPath).FullName, "ImageData");
-        allImages = new List<ImgEntry>();
-        //allImages.Clear();
-        EnsureFolderExist();
-        MakeDictionary();
-        LoadRandomImage();
-
-    }*/
-
-
-
+    //creates ImageData folder if none exists
+    //two cases: 1 -> images in ImageData:
+    //      For every category(Folder) call LoadRealOrFakeExternal() to load fake and real images
+    //      Categories are only used if both fake and real images are there
+    //           2 -> No external images:
+    //      LoadFallbackResources() is called to load the fallback images
     private void LoadFolders()
     {
         Directory.CreateDirectory(basePath);
@@ -212,8 +194,8 @@ public class ImgProvider : MonoBehaviour
         }
     }
 
-    //Loads the images of correct category and isFake state into allImages
-    //checks if there is sth in the folders or not. Otherwise it loads the FallbackImages
+    //Loads the images of given categoryname (foldername) and isFake state (subfoldername) into allImages
+    //checks returns number of loaded images
     private int LoadRealOrFakeExternal(string categoryName, bool isFake)
     {
         string realFakeName = isFake ? "Fake" : "Real";
@@ -232,6 +214,7 @@ public class ImgProvider : MonoBehaviour
         return allImages.Count - beforeCount;
     }
 
+    //loads media from the folder and stored in the ImgEntry
     private void LoadFolderIntoList(string folderPath, bool isFake, string cat)
     {
         string[] files = Directory.GetFiles(folderPath);
@@ -290,6 +273,7 @@ public class ImgProvider : MonoBehaviour
         }
     }
 
+    //loads fallback images from resources folder and stores them in ImgEntry
     private void LoadFallbackResources(string resourcesFolder, bool isFake, string cat)
     {
         Texture2D[] fallbackTextures = Resources.LoadAll<Texture2D>(resourcesFolder);
@@ -312,15 +296,10 @@ public class ImgProvider : MonoBehaviour
         }
     }
 
-    /*
-    private void MakeDictionary()
-    {
-        categorizedImages = allImages.GroupBy(i => i.category).ToDictionary(g => g.Key, g => g.ToList());
-    }
-    */
 
-    // builds a list with the order of the images chosen in the study
-    // this makes sure that it is random but still balanced
+    //builds a list with the order of the images chosen in the study
+    //this makes sure that it is random but still balanced
+    //stores the ImgEntrys in the list
     private void BuildBalancedStudyOrder()
     {
         studyOrder = new List<ImgEntry>();
@@ -373,7 +352,9 @@ public class ImgProvider : MonoBehaviour
 
     }
 
-
+    //next image of the balanced study order list
+    //handles the different media types
+    //stores the current media informations under chosenEntry
     public bool LoadNextStudyImage()
     {
         Initialize();
@@ -417,6 +398,7 @@ public class ImgProvider : MonoBehaviour
         return true;
     }
 
+    //handles the videos
     private void PlayVideo(string videoURL)
     {
         if (!isActiveAndEnabled)
@@ -444,19 +426,6 @@ public class ImgProvider : MonoBehaviour
 
         videoPlayer.Play();
         
-
-        /*
-        targetImage.texture = videoRenderTexture;
-
-        videoPlayer.Stop();
-
-        videoPlayer.source = VideoSource.VideoClip;
-        videoPlayer.clip = video;
-        videoPlayer.renderMode = VideoRenderMode.RenderTexture;
-        videoPlayer.targetTexture = videoRenderTexture;
-        videoPlayer.isLooping = true;
-
-        videoPlayer.Play();*/
     }
 
     private void StopVideo()
@@ -475,7 +444,7 @@ public class ImgProvider : MonoBehaviour
     }
 
 
-    //creates ID for images
+    //creates unique ID for each media
     private string CreateImageId(string category, bool isFake, string fileName)
     {
         string realFakeName = isFake ? "Fake" : "Real";
@@ -484,6 +453,7 @@ public class ImgProvider : MonoBehaviour
     }
 
    
+    //when called -> increases study index and calls progress update
     public void ConfirmCurrentImageCompleted()
     {
         if (IsStudyFinished)
@@ -498,25 +468,13 @@ public class ImgProvider : MonoBehaviour
         }
     }
 
+    //if balanced list is through -> update playthroughs and reshuffle
     private void FinishStudy()
     {
         Debug.Log("Study finished. No unused images left. -> reshuffle");
 
         playthroughs++;
 
-        /*
-        if (targetImage != null)
-            targetImage.texture = null;
-
-        CurrentImgEntry = null;
-        currentIsFake = false;
-        currentImgName = "";
-        currentCategory = "";
-
-        SaveStudyProgress();
-
-        onStudyFinished?.Invoke();
-        */
         BuildBalancedStudyOrder();
         IsStudyFinished = false;
         SaveStudyProgress();
@@ -615,55 +573,5 @@ public class ImgProvider : MonoBehaviour
         }
     }
 
-
-
-    //old version of LoadRandomImage()
-    /*
-    
-    Initialize();
-
-    if (categorizedImages == null || categorizedImages.Count == 0)
-    {
-        Debug.LogWarning("categorizedImages is empty or not initialized.");
-        return;
-    }
-
-    //chose one category randomly
-    ImgCategory[] categories = (ImgCategory[])Enum.GetValues(typeof(ImgCategory));
-
-    ImgCategory randomCategory = categories[UnityEngine.Random.Range(0, categories.Length)];
-
-    //fallback if category has no images
-    if (!categorizedImages.ContainsKey(randomCategory))
-    {
-        Debug.LogWarning("No images for category: " + randomCategory);
-        return;
-    }
-
-    List<ImgEntry> images = categorizedImages[randomCategory];
-
-    bool chooseFake = UnityEngine.Random.value > 0.5f;
-
-    //get images with correct category and correct bool
-    List<ImgEntry> matchingImages = images.Where(i => i.isFake == chooseFake).ToList();
-    ImgEntry chosenEntry = null;
-
-    if (matchingImages.Count > 0)
-    {
-        chosenEntry = matchingImages[UnityEngine.Random.Range(0, matchingImages.Count)];
-
-        Debug.Log(chosenEntry.fileName);
-    }
-    else
-    {
-        Debug.LogWarning("No matching images found.");
-    }
-
-    CurrentImgEntry = chosenEntry;
-    currentIsFake = chooseFake;
-    targetImage.texture = chosenEntry != null ? chosenEntry.texture : null;
-    currentImgName = chosenEntry != null ? chosenEntry.fileName : "";
-    currentCategory = randomCategory.ToString();
-    */
 }
 

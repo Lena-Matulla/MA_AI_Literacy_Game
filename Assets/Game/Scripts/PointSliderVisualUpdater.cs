@@ -3,6 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
+
+/// <summary>
+/// When points are added to the TrustValue Progressbar, it not just updates to the new value,
+/// but a visual transition to the new point value is animated.
+/// </summary>
 public class PointSliderVisualUpdater : MonoBehaviour
 {
     private Slider slider;

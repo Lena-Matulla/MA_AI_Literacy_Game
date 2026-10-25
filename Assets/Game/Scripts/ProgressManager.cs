@@ -1,4 +1,11 @@
+using System.Drawing;
 using UnityEngine;
+
+/// <summary>
+/// Processes the progress of Points and Levels.
+/// Also handles the effects when a new level is reached, saves and loads the progress and updates the office progress visuals.
+///aka:Point and Level System
+/// </summary>
 
 public class ProgressManager : MonoBehaviour
 {
@@ -42,13 +49,13 @@ public class ProgressManager : MonoBehaviour
         LoadProgress();
         
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         RefreshVisuals();
 
     }
 
+    //add points, update level, save points and level and refresh Office
     public void AddPoints(int amount)
     {
         currentPoints += amount;
@@ -75,6 +82,10 @@ public class ProgressManager : MonoBehaviour
         GetLevelFromPoints(currentPoints);
     }
 
+    //checks if enough points for new level are reached, calculates leftover points as well (if enough
+    //new points for two levels for example)
+    //if new level:
+    //      update current points and current level, open notebook, level up pop up animation
     private void GetLevelFromPoints(int points)
     {
 
@@ -130,21 +141,10 @@ public class ProgressManager : MonoBehaviour
 
             
         }
-
-
-        /*
-
-        for (int i = 0; i < levelThresholds.Length; i++)
-        {
-            if (points >= levelThresholds[i])
-                level = i;
-        }
-        
-        return level;
-        */
     }
 
 
+    //save points and level through SaveManager
     public void SaveProgress()
     {
         GameProgressData data = SaveManager.Load();
@@ -155,7 +155,7 @@ public class ProgressManager : MonoBehaviour
         SaveManager.Save(data);
     }
     
-
+    //Load points and level through SaveManager
     public void LoadProgress()
     {
         GameProgressData data = SaveManager.Load();
@@ -163,7 +163,7 @@ public class ProgressManager : MonoBehaviour
         currentLevel = data.currentLevel;
     }
     
-
+    //Update office visuals
     public void RefreshVisuals()
     {
         if (officeVisuals != null)

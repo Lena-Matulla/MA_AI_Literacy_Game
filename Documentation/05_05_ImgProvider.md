@@ -3,7 +3,7 @@
 ## Purpose
 
 Provides and updates the RawImage with the pictures or videos which are displayed and used in the ImageGame game.
-Also makes the media accessible through the ImageData folder beside the exe. In the WebGL version the fallback media is used instead.
+Also makes the media accessible through the ImageData folder beside the exe.
 
 Creates a random but balanced study order out of the available categories and the real and fake media.
 
@@ -49,8 +49,6 @@ Checks if it was already initialized, if yes then return.
 
 Initializes the allImages List.
 
-In the WebGL build it directly calls LoadFallbackFolders(), because external folders cannot be used there.
-
 In the editor or exe version it stores the basepath to the parent folder ImageData where the media lies and calls LoadFolders().
 
 If no media could be loaded, a Debug warning is called and returned.
@@ -65,28 +63,6 @@ Then sets initialized to true.
 
 Calls Initialize(). Only effective if LoadNextStudyImage() is not called beforehand through the TrialManager. (Just Fallback)
 
-### LoadFallbackFolders()
-
-Loads the fallback images for every category from the Resources folders.
-
-For every category it loads the Real and Fake folder by calling LoadFallbackResources().
-
-After that it calls LoadFallbackVideos() to add the fallback videos from StreamingAssets.
-
-### LoadFallbackVideos()
-
-Calls AddFallbackVideo() for every filename in the fallbackRealVideos and fallbackFakeVideos Lists.
-
-### AddFallbackVideo(string fileName, bool isFake)
-
-Creates the correct URL for a fallback video.
-
-In WebGL the StreamingAssets HTTP URL is used.
-
-In the editor or exe version it checks if the local file exists and if the file is not empty.
-
-Stores the video in an ImgEntry with the category Video and adds it to allImages.
-
 ### LoadFolders()
 
 Creates the ImageData folder if it does not exist.
@@ -97,7 +73,7 @@ For every category it calls LoadRealOrFakeExternal() once for the Real folder an
 
 A category is only used when it contains at least one real and one fake media entry. If one of them is missing, all entries of that category are removed.
 
-If there are no valid external categories, LoadFallbackFolders() is called.
+If there are no valid external images, LoadFallbackFolders() is called.
 
 The external folder structure is:
 
@@ -278,7 +254,6 @@ Creates and saves a randomized but balanced study order. Uses the entries from t
 - The old MakeDictionary() and LoadRandomImage() implementations are commented out.
 - An external category is only used if both its Real and Fake folders contain valid media.
 - If no valid external category exists, all fallback media is loaded.
-- The WebGL version always uses fallback media.
 - Supported external formats are .png, .jpg, .jpeg and .mp4.
 - After all media was used, a new balanced order is automatically created and the playthrough counter is increased.
 - onStudyFinished is currently not invoked because its call is inside commented-out code.

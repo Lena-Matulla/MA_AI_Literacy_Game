@@ -3,11 +3,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-
+/// <summary>
+///this script manages the trial flow/gameplay logic of the ImageGame.
+///It manages the selection between real and fake, the marking of fake media,
+///the confidence rating, logging, scoring and loading the next media entry.
+/// </summary>
 public class TrialManager : MonoBehaviour
 {
     [SerializeField] private OnCorrectAnswer onCorrectAnswer;
-
 
     [Header("Refs")]
     public ImgProvider imageProvider;
@@ -48,7 +51,6 @@ public class TrialManager : MonoBehaviour
 
     //to be able to make the zip file later on, storing the used images there
     public ExportManager exportManager;
-
 
     //Saving vars for logging
     private bool _ChoseFake = false;
@@ -104,7 +106,6 @@ public class TrialManager : MonoBehaviour
         StartNewTrial();
     }
 
-
     //SELECTION STATES FOR THE BUTTONS
     //Change based on selection, also changes the interaction possibility
     private void Select(Selection selection)
@@ -114,15 +115,10 @@ public class TrialManager : MonoBehaviour
         //activate interaction if Fake selected
         if (selection == Selection.Fake)
         {
-            /*if (!interactionLayer.gameObject.active)
-            {
-                interactionLayer.gameObject.SetActive(true);
-            }*/
             _fakeClickedInTrial++;
         }
         else
         {
-           // interactionLayer.gameObject.SetActive(false);
             _realClickedInTrial++;
         }
     }
@@ -162,6 +158,7 @@ public class TrialManager : MonoBehaviour
         button.transform.localScale = selected ? Vector3.one * selectedScale : Vector3.one;
     }
 
+    //confirms answers and makes next steps based on answer
     private void OnConfirmClicked()
     {
         if (_state != TrialState.Answering) return;
@@ -181,19 +178,15 @@ public class TrialManager : MonoBehaviour
         {
             _ChoseFake = true;
             _state = TrialState.Marking;
-            //interactionLayer.gameObject.SetActive(true);
             toggle.isOn = true;
             Markerpart.gameObject.SetActive(true);
             whyInputField.interactable = true;
             
         }
         else return;
-
-        //EnterConfienceState();
-        
     }
 
-
+    //handle the toggle which makes the image markable
     private void OnToggleChanged(Toggle toggle)
     {
         //The image should only be clickable while marking a Fake answer
@@ -225,6 +218,7 @@ public class TrialManager : MonoBehaviour
         }
     }
 
+    //confirm marked and open next step
     private void OnConfirmMarkedClicked()
     {
         if (_state != TrialState.Marking || _selection != Selection.Fake)
@@ -246,6 +240,7 @@ public class TrialManager : MonoBehaviour
         
     }
 
+    //locks ui and lets user enter the confidence
     private void EnterConfienceState()
     {
         _state = TrialState.Confidence;
@@ -273,7 +268,8 @@ public class TrialManager : MonoBehaviour
         FinalizeAndLog();
     }
 
-    //Log with all safe values
+    //Logs the values through DataLogger and call function of ImgProvider to confirm current img finished (so 
+    //next image gets selected and provided from the list)
     private void FinalizeAndLog()
     {
         bool groundTruthIsFake = imageProvider.currentIsFake;
@@ -308,8 +304,6 @@ public class TrialManager : MonoBehaviour
         //update the score on the computerscreen
         if(accuracy == 1)
         {
-
-            //animation + update of Score (in coroutine)
             ScoreThisRound += pointUpdate;
             onCorrectAnswer.HandleCorrectAnswer(ScoreThisRound);
 
@@ -320,6 +314,7 @@ public class TrialManager : MonoBehaviour
         ExitConfidenceState();
     }
 
+    //exit confidence and start new trial
     private void ExitConfidenceState()
     {
         confidencePanel.SetActive (false);
@@ -342,8 +337,6 @@ public class TrialManager : MonoBehaviour
     //reset to new trial with new image 
     private void StartNewTrial()
     {
-        
-
         bool hasImage = imageProvider.LoadNextStudyImage();
 
         if (!hasImage)
@@ -382,7 +375,6 @@ public class TrialManager : MonoBehaviour
 
 
     //function that updates the click locations when interactable image is clicked
-
     public void updatemarked(Vector2 ll, Vector2 ln)
     {
         //only work when fake is clicked and we are in marking state
@@ -397,6 +389,7 @@ public class TrialManager : MonoBehaviour
 
 
     //when home button is clicked, the roundscore is updated on the overall score and reset
+    //uses Progressmanager for this
     public void exportPointsOnClosed()
     {
         ProgressManager.Instance.AddPoints(ScoreThisRound);
@@ -404,7 +397,7 @@ public class TrialManager : MonoBehaviour
         ScoreThisRoundTextField.text = ScoreThisRound.ToString();
     }
 
-
+    //currently not used
     private void EndStudy()
     {
         Debug.Log("All study images completed.");
@@ -423,64 +416,5 @@ public class TrialManager : MonoBehaviour
 
         //TODO: show an end screen here
     }
-
-
-
-
-
-
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /*
-    private void OnAnswer(bool userChoseFake, Vector2 lastLocal, Vector2 lastNorm)
-    {
-        if (_hasAnsweredThisTrial) return;
-        _hasAnsweredThisTrial = true;
-
-
-        bool groundTruthIsFake = imageProvider.currentIsFake;
-        string imageName = imageProvider.currentImageName;
-
-        int accuracy = (userChoseFake == groundTruthIsFake) ? 1 : 0;
-        int reactionTimeMs = Mathf.RoundToInt((Time.time - _trialStartTime) * 1000f);
-
-        //Log
-        dataLogger.LogTrial(
-            trialIndex: _trialIndex,
-            imageName: imageName,
-            groundTruthIsFake: groundTruthIsFake,
-            userChoseFake: userChoseFake,
-            accuracy: accuracy,
-            reactionTimeMs: reactionTimeMs,
-            lastLocal: lastLocal,
-            lastNormal: lastNorm,
-            toggleChecked: _toggleChecked,
-            confidence: _confidence,
-            realclicked: _realClickedInTrial,
-            fakeclicked: _fakeClickedInTrial,
-            whyText: whytext
-        );
-
-        StartNewTrial();
-        ResetSelectionUI();
-    }
-
-
-    private void Fake()
-    {
-        //BUTTON MARKIEREN UND ANDEREN WEG
-        //activate interaction if not done already
-        if (!interactionLayer.gameObject.active)
-        {
-            interactionLayer.gameObject.SetActive(true);
-        }
-
-        /*if (interactionLayer.interacted)
-        {
-            OnAnswer(userChoseFake: true, interactionLayer.lastLocal, interactionLayer.lastNormal);
-            //interactionLayer.gameObject.SetActive(false);
-        }*/
-    //}
 
 }

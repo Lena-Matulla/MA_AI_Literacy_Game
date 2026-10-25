@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 
+
+/// <summary>
+/// Data container to store the progress
+/// </summary>
 [System.Serializable]
 public class GameProgressData
 {

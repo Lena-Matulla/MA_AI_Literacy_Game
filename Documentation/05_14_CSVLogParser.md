@@ -25,7 +25,7 @@ public function which can be called.
 Calls LoadData(filePath) and stores it in "data" and calls PrintAllParsedData(data) for debugging.
 
 ## LoadData(string filePath)
-Loads the csv (if ther is one)
+Loads the csv (if there is one)
 It iterates over each line and parses its values with ParseCsvLine(lines[i]). Each time creates a new CSVDataForStatistics object and stores alle the values. Then adds it to loadedData (List of CSVDataForStatistics objects).
 
 ## PrintAllParsedData(List<CSVDataForStatistics> parsedData)
