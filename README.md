@@ -33,3 +33,58 @@ Um das Spiel korrekt zu starten muss die "StartScene" Scene gestartet werden. Di
 ## Weitere Hinweise:
 
 Falls beim ersten Öffnen Fehler auftreten, zuerst prüfen, ob alle externen Assets korrekt importiert wurden.
+
+## Music and Sound Credits
+
+### Background Music
+
+The following tracks were composed by Kevin MacLeod
+and obtained from [Incompetech](https://incompetech.com/):
+
+- "Fireflies and Stardust" — Kevin MacLeod
+- "Cheery Monday" — Kevin MacLeod
+- "Glitter Blast" — Kevin MacLeod
+- "Bummin on Tremelo" — Kevin MacLeod
+- "Guts and Bourbon" — Kevin MacLeod
+- "Sunshine" — Kevin MacLeod
+- "Somewhere Sunny" — Kevin MacLeod
+
+All tracks are licensed under the
+[Creative Commons Attribution 4.0 International
+(CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+
+### Sound Effects
+
+The following sound effects were obtained from Freesound:
+
+- [Level Up](https://freesound.org/people/qubodup/sounds/442943/)
+  by qubodup — CC0
+
+- [Collecting Coins](https://freesound.org/people/Philip_Berger/sounds/693840/)
+  by Philip_Berger — CC0
+
+- [Drink Sip and Swallow](https://freesound.org/people/OwlStorm/sounds/320139/)
+  by OwlStorm — CC0
+
+All three sound effects are available under
+[Creative Commons CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+
+
+
+## Image Credits
+
+The real photographic stimuli used in this game
+were sourced from:
+
+- [Unsplash](https://unsplash.com/)
+- [Pexels](https://www.pexels.com/)
+- [Pixabay](https://pixabay.com/)
+
+These images were used under the respective
+platform licenses, which do not require attribution.
+
+The AI-generated stimuli and additional graphical
+assets were created using ChatGPT.
+
+The office environment was constructed using a
+commercially purchased tile set.
